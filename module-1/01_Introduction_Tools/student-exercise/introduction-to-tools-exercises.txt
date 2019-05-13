@@ -240,18 +240,19 @@ no changes added to commit (use "git add" and/or "git commit -a")
 $ git add -A
 Techs-MacBook-Air-102:techelevator ahuang$ 
 
-$ git commit -m "Exercise 15 redo"
-[master 79424b7] Exercise 15 redo
- 1 file changed, 29 insertions(+), 7 deletions(-)
+$ git commit -m "Commit #3: I keept forgetting to save the textfile before staging"
+[master a5926b7] Commit #3: I keept forgetting to save the textfile before staging
+ 1 file changed, 3 insertions(+), 4 deletions(-)
 
 $ git push origin master
-Counting objects: 12, done.
+Counting objects: 6, done.
 Delta compression using up to 4 threads.
-Compressing objects: 100% (9/9), done.
-Writing objects: 100% (12/12), 1.44 KiB | 738.00 KiB/s, done.
-Total 12 (delta 3), reused 0 (delta 0)
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (6/6), 646 bytes | 646.00 KiB/s, done.
+Total 6 (delta 2), reused 0 (delta 0)
 To https://bitbucket.org/te-cbus-cohort-8/andrewhuang-java-blue-material.git
-   fc0f591..9f863f0  master -> master
+   79424b7..a5926b7  master -> master
+
 
 
 ----
@@ -262,8 +263,11 @@ $ rm Helloworld.java.copy
 
 The "rm" parameter is the name of the file to be deleted.
 
-$ <enter command to list all files and directories in order to confirm the file deletion>
-<type or copy-paste the result here>
+$ ls -al
+total 8
+drwxr-xr-x  3 ahuang  staff   96 May 13 18:59 .
+drwxr-xr-x  3 ahuang  staff   96 May 13 18:14 ..
+-rw-r--r--  1 ahuang  staff  141 May 13 18:14 Helloworld.java
 
 
 ----
@@ -284,8 +288,8 @@ command line when that seems natural.
 
 Regardless of the option you chose, check your new location.
 
-$ <enter command to display present working directory>
-<type or copy-paste your present working directory here>
+$ pwd
+/Users/ahuang/Development/workspace/andrewhuang-java-blue-material/module-1/01_Introduction_Tools/student-exercise/java-helloworld
 
 
 ----
@@ -294,9 +298,9 @@ $ <enter command to display present working directory>
 ----
 
 $ mkdir docs
-$ <enter the command to change directory to "docs" using a relative path>
-$ <enter command to display present working directory>
-<type or copy-paste your present working directory here>
+$ cd docs
+$ pwd
+/Users/ahuang/Development/workspace/andrewhuang-java-blue-material/module-1/01_Introduction_Tools/student-exercise/java-helloworld/docs
 
 ----
 19. Create a new file name "readme.txt" using Visual Studio Code, and add the text
