@@ -1,1 +1,1 @@
-Hello, this is a test file. Second sentence represents edits in nano
+This is our second change
