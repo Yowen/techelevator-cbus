@@ -240,10 +240,9 @@ no changes added to commit (use "git add" and/or "git commit -a")
 $ git add -A
 Techs-MacBook-Air-102:techelevator ahuang$ 
 
-$ git commit -m "Exercise 15"
-[master 9f863f0] Exercise 15
- 2 files changed, 43 insertions(+), 12 deletions(-)
- create mode 100644 module-1/01_Introduction_Tools/student-exercise/java-helloworld/src/main/java/com/techelevator/Helloworld.java.copy
+$ git commit -m "Exercise 15 redo"
+[master 79424b7] Exercise 15 redo
+ 1 file changed, 29 insertions(+), 7 deletions(-)
 
 $ git push origin master
 Counting objects: 12, done.
