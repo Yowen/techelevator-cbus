@@ -130,7 +130,7 @@ Changes not staged for commit:
 no changes added to commit (use "git add" and/or "git commit -a")
 
 $ git add -A
-Techs-MacBook-Air-102:java-helloworld ahuang$ 
+No return
 
 $ git commit -m "Good stopping point"
 [master fc0f591] Good stopping point
@@ -238,7 +238,7 @@ Untracked files:
 no changes added to commit (use "git add" and/or "git commit -a")
 
 $ git add -A
-Techs-MacBook-Air-102:techelevator ahuang$ 
+No return
 
 $ git commit -m "Commit #3: I keept forgetting to save the textfile before staging"
 [master a5926b7] Commit #3: I keept forgetting to save the textfile before staging
