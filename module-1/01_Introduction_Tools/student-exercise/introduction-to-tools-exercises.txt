@@ -15,7 +15,7 @@ actual command from other text in Unix documentation.
     refer to?
 ----
 
-<type your response here>
+Tilde refers to the home directory.
 
 ----
 3.  A good habit to develop, especially while you're developing your skills on
@@ -24,7 +24,7 @@ actual command from other text in Unix documentation.
 ----
 
 $ pwd
-<type or copy-paste the result here>
+/Users/ahuang/Development/workspace/andrewhuang-java-blue-material/module-1/01_Introduction_Tools/student-exercise/java-helloworld
 
 The present working directory displayed should match the directory you changed
 to in Exercise 1.  Note, the two may not match at the very beginning if you
@@ -40,7 +40,12 @@ changes directory, and the "pwd" command reflects this.
 ----
 
 $ ls -la
-<type or copy-paste the result here>
+total 8
+drwxr-xr-x  5 ahuang  staff   160 May 13 18:14 .
+drwxr-xr-x  7 ahuang  staff   224 May 13 18:20 ..
+drwxr-xr-x  3 ahuang  staff    96 May 13 18:14 database
+-rw-r--r--  1 ahuang  staff  1091 May 13 18:14 pom.xml
+drwxr-xr-x  4 ahuang  staff   128 May 13 18:14 src
 
 
 ----
@@ -48,14 +53,15 @@ $ ls -la
     Exercise 4 represent?
 ----
 
-<type your answer here>
+. returns the user to the current working directory.
+.. returns the user to the working directory's parent directory.
 
 ----
 6.  What are the names of the files, including any dot-files, displayed in the
     directory listing in Exercise 4?
 ----
 
-<type or copy-paste your answer here>
+pom.xml
 
 
 ----
@@ -63,7 +69,10 @@ $ ls -la
     the directory listing in Exercise 4?
 ----
 
-<type or copy-paste your answer here>
+.
+..
+database
+src
 
 
 ----
