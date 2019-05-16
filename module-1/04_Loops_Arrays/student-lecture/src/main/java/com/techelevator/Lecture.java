@@ -23,6 +23,7 @@ public class Lecture {
     */
     public int returnLastElement() {
         int[] portNumbers = {80,8080,443};
+        // Good practice to not use set values
         return portNumbers[portNumbers.length - 1];
     }
 
