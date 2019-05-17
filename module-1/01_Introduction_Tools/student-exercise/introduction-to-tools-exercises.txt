@@ -17,11 +17,7 @@ Techs-MacBook-Air-95:java-helloworld brianlauvray$ pwd
     refer to?
 ----
 
-<<<<<<< HEAD
 Tilde refers to the home directory.
-=======
-The Home directory
->>>>>>> 73c87d4aa3f4f0c39a2187536413923a99de78b8
 
 ----
 3.  A good habit to develop, especially while you're developing your skills on
