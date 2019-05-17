@@ -16,7 +16,6 @@ public class Exercises {
 		else {
 			return false;
 		}
-		
 	}
 
 	/*
@@ -28,6 +27,7 @@ public class Exercises {
 	 monkeyTrouble(true, false) → false
 	 */
 	public boolean monkeyTrouble(boolean aSmile, boolean bSmile) {
+
 		/*
 		if (aSmile == true && bSmile == true) {
 			return true;
@@ -55,6 +55,7 @@ public class Exercises {
 		/*
 		return (aSmile && bSmile) || (!aSmile && !bSmile);
 		*/
+
 		return aSmile == bSmile;
 	}
 
