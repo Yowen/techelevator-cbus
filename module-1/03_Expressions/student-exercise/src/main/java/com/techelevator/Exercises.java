@@ -725,7 +725,9 @@ public class Exercises {
 			if (b == 13) {
 				return 0;
 			}
-			return c;
+			else {
+				return c;
+			}
 		}
 		else if (b == 13) {
 			return a;
