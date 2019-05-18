@@ -16,7 +16,16 @@ public class EarthToSunWeightConverter {
 		 * How could we display all the arguments passed into the args array?
 		 */
 
-		
+		System.out.printf("%-15s %s", "Earth (lbs)", "Sun (lbs)");
+		System.out.println("\n-------------------------");
+
+		for (int i = 0; i < args.length; i++) {
+			int weightOnEarth = Integer.parseInt(args[i]);
+			int weightOnTheSun = weightOnEarth * sunGravity;
+			System.out.printf("%-15s %s", weightOnEarth, weightOnTheSun);
+			System.out.println();
+		}
+
 		/*
 		 * How could we use those arguments in our calculator program?
 		 */
