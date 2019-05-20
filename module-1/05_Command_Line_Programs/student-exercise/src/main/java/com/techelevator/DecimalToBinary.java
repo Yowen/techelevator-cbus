@@ -1,19 +1,33 @@
 package com.techelevator;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class DecimalToBinary {
 
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
-		long[] array = new long[5];
+		System.out.print("Please enter in a series of decimal values (separated by spaces): ");
+		String userInput = input.nextLine();
+		String[] decimalValues = userInput.split(" ");
 		
-		System.out.print("Please enter in 5 decimal values (separated by spaces): ");
-		
-		for (int i = 0; i < array.length; i++) {
-			array[i] = (long) input.nextLong();
-			String binary = Integer.toBinaryString((int)array[i]);
-			System.out.println(array[i] + " in binary is " + binary);
+		for (int i = 0; i < decimalValues.length; i++) {
+			long num = Long.parseLong(decimalValues[i]);
+			
+			// Generates reversed binary output
+			String reverseBinaryOutput = "";
+			while (num  > 0) {
+				reverseBinaryOutput += (int) num % 2;
+				num = num / 2;
+			}
+			
+			// Reverse prints reversedBinaryOutput
+			String binaryOutput = "";
+			for (int j = 0; j < reverseBinaryOutput.length(); j++) {
+				binaryOutput += reverseBinaryOutput.charAt(reverseBinaryOutput.length() - 1 - j);
+			}
+			
+			// Reverse prints the string
+			System.out.println(decimalValues[i] + " in binary is " + binaryOutput);
 		}
+		input.close();
 	}
 }

@@ -6,18 +6,35 @@ public class Lecture {
 	public static void main(String[] args) {
 
 		/* Object Instantiation */
-
+		House houseAt443WinstonSt = new House(1800, "443 Winston St", "Cornflower Blue");
+		House houseAt123WayAve = new House(980, "123 Way Ave", "White");
 		
 		/* Value Type */
 		int x = 10;
+		int y = x;
+		x = 20;
 		
 		/* Reference Type */
 		int[] numbers = { 10, 20, 30 , 40 };
-
+		int[] otherNumbers = numbers;
+		numbers[1] = 99;
+		otherNumbers[3] = 42;
 		
+		houseAt123WayAve.setNumberOfFloors(2);
 		String firstName = "joe";
-		firstName.toUpperCase();
+		String firstNameUpperCase = firstName.toUpperCase();
 
+		int z = 20;
+		int q = 20;
+		if (z == q) {
+			System.out.println("z and q are equal");
+		}
+		
+		String str1 = new String("Hello");
+		String str2 = new String("Hello");
+		if (str1 == str2) {
+			System.out.println("The strings are equal");
+		}
 		
 		System.out.println("************************************");
 		System.out.println("****** MAKING A STRING OBJECT ******");
@@ -72,17 +89,37 @@ public class Lecture {
 		/* Other commonly used methods:
 		 * 
 		 * endsWith()
-		 * startsWith()
-		 * indexOf()
-		 * lastIndexOf()
-		 * replace()
-		 * toLowerCase()
-		 * toUpperCase()
-		 * equals and equalsIgnoreCase()
-		 * split()
-		 * trim()
-		 * String.join()  <-- available only on the String class and not the string object
 		 */
+		/*
+		 * startsWith()
+		 */
+		/*
+		 * indexOf()
+		 */
+		/*
+		 * lastIndexOf()
+		 */
+		/*
+		 * replace()
+		 */
+		String newHello = hello.replace("World!", "Room!");
+		
+		/* toLowerCase()
+		 */
+		 /* toUpperCase()
+		 */ 
+		/* equals and equalsIgnoreCase()
+		 */ 
+		/* split()
+		 */
+		/* trim()
+		 */
+		System.out.println("         SPA    CES       ".trim());
+		/* String.join()  <-- available only on the String class and not the string object
+		 */
+		System.out.println(x);
+		
+		
 
 		
 		System.out.println();
