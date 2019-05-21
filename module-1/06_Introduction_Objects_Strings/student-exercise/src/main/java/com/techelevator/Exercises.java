@@ -9,7 +9,8 @@ public class Exercises {
 	 helloName("X") → "Hello X!"
 	 */
 	public String helloName(String name) {
-		return null;
+		String greeting = "Hello " + name + "!";
+		return greeting;
 	}
 
 	/*
@@ -20,7 +21,7 @@ public class Exercises {
 	 makeAbba("What", "Up") → "WhatUpUpWhat"
 	 */
 	public String makeAbba(String a, String b) {
-		return null;
+		return a + b + b + a;
 	}
 
 	/*
@@ -32,7 +33,7 @@ public class Exercises {
 	 makeTags("cite", "Yay") → "<cite>Yay</cite>"
 	 */
 	public String makeTags(String tag, String word) {
-		return null;
+		return "<" + tag + ">" + word + "</" + tag + ">";
 	}
 
 	/*
@@ -85,7 +86,8 @@ public class Exercises {
 	 firstHalf("abcdef") → "abc"
 	 */
 	public String firstHalf(String str) {
-		return null;
+		String firstHalf = str.substring(0, str.length()/2);
+		return firstHalf;
 	}
 
 	/*
@@ -96,7 +98,8 @@ public class Exercises {
 	 withoutEnd("coding") → "odin"
 	 */
 	public String withoutEnd(String str) {
-		return null;
+		String withoutEnd = str.substring(1,str.length() - 1);
+		return withoutEnd;
 	}
 
 	/*
@@ -108,7 +111,12 @@ public class Exercises {
 	 comboString("aaa", "b") → "baaab"
 	 */
 	public String comboString(String a, String b) {
-		return null;
+		if (a.length() > b.length()) {
+			return b + a + b;
+		}
+		else {
+			return a + b + a;
+		}
 	}
 
 	/*
@@ -119,7 +127,14 @@ public class Exercises {
 	 nonStart("shotl", "java") → "hotlava"
 	 */
 	public String nonStart(String a, String b) {
-		return null;
+		if (a.length() <= 0 || b.length() <= 0) {
+			return null;
+		}
+		else {
+			String nonStartA = a.substring(1);
+			String nonStartB = b.substring(1);
+			return a + b;
+		}
 	}
 
 	/*
@@ -130,7 +145,14 @@ public class Exercises {
 	 left2("Hi") → "Hi"
 	 */
 	public String left2(String str) {
-		return null;
+		if (str.length() <= 1) {
+			return null;
+		}
+		else {
+			String left2 = str.substring(0, 2);
+			String remainingStrLeft = str.substring(2);
+			return remainingStrLeft + left2;
+		}
 	}
 
 	/*
@@ -141,7 +163,14 @@ public class Exercises {
 	 right2("Hi") → "Hi"
 	 */
 	public String right2(String str) {
-		return null;
+		if (str.length() <= 1) {
+			return null;
+		}
+		else {
+			String right2 = str.substring(str.length() - 2);
+			String remainingStrRight = str.substring(0, str.length() - 2);
+			return right2 + remainingStrRight;
+		}
 	}
 
 	/*
@@ -152,7 +181,12 @@ public class Exercises {
 	 theEnd("oh", true) → "o"
 	 */
 	public String theEnd(String str, boolean front) {
-		return null;
+		if (front) {
+			return str.substring(0, 1);
+		}
+		else {
+			return str.substring(str.length() - 1);
+		}
 	}
 
 	/*
@@ -163,7 +197,13 @@ public class Exercises {
 	 withoutEnd2("ab") → ""
 	 */
 	public String withoutEnd2(String str) {
-		return null;
+		if (str.length() <= 2) {
+			return "";
+		}
+		else {
+			String withoutEnd2 = str.substring(1, str.length()-1);
+			return withoutEnd2;
+		}
 	}
 
 	/*
@@ -174,7 +214,12 @@ public class Exercises {
 	 middleTwo("Practice") → "ct"
 	 */
 	public String middleTwo(String str) {
-		return null;
+		if (str.length() >= 2 && str.length() % 2 == 0) {
+			return str.substring(str.length()/2 - 1, str.length()/2);
+		}
+		else {
+			return null;
+		}
 	}
 
 	/*
@@ -184,7 +229,18 @@ public class Exercises {
 	 endsLy("oddy") → false
 	 */
 	public boolean endsLy(String str) {
-		return false;
+		// Had to look this up online, the instructions did not explicitly state to check if the 
+		// length was 2 or greater.
+		String ly = "ly";
+		if (str.length() < 2) {
+			return false;
+		}
+		else if (ly.equals(str.substring(str.length()-2, str.length()))) {
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 
 	/*
@@ -195,7 +251,10 @@ public class Exercises {
 	 nTwice("Chocolate", 1) → "Ce"
 	 */
 	public String nTwice(String str, int n) {
-		return null;
+		String nTwiceStart = str.substring(0, n);
+		String nTwiceEnd = str.substring(str.length() - n);
+		return nTwiceStart + nTwiceEnd;
+		
 	}
 
 	/*
@@ -207,7 +266,17 @@ public class Exercises {
 	 twoChar("java", 3) → "ja"
 	 */
 	public String twoChar(String str, int index) {
-		return null;
+		if (str.length() >= 2) {
+			if (index + 2 > str.length() || index < 0) {
+		        return str.substring(0, 2);
+			}
+			else {
+				return str.substring(index, index + 2);
+			}
+		}
+		else {
+			return str.substring(index, index + 2);
+		}
 	}
 
 	/*
