@@ -97,7 +97,6 @@ public class Lecture {
 		objX = intY + 10;
 		
 		Double accountBalance = null;
-		double newBalance = accountBalance + 100;
 		// Since accountBalance is null, the next line causes a NullPointerException when autoboxing happens
 		// double newBalance = accountBalance + 100;
 		
@@ -107,18 +106,52 @@ public class Lecture {
 		numbers.add(20);
 		numbers.add(30);
 		numbers.add(40);
+		numbers.add(new Integer("50"));
 
 		System.out.println("####################");
 		System.out.println("       FOREACH");
 		System.out.println("####################");
 		System.out.println();
 
+		for (Integer num : numbers) {
+			System.out.println(num);
+		}
+		
+		for (String name : instructors) {
+			System.out.println(name);
+		}
+		
+		// Equivalent standard for loop:
+		// for (int i = 0; i < instructors.size(); i++) {
+		// 		System.out.println(instructors.get(i);
+		// }
+		
+		double[] doubles = { 2.5d, 3.67d, 1.2d, 0.75d };
+		for (double d : doubles) {
+			System.out.println( d * 2 );
+		}
 
 		System.out.println("####################");
 		System.out.println("       QUEUES");
 		System.out.println("####################");
 		System.out.println();
+		
+		Queue<String> tasks = new LinkedList<String>();
+		
+		// Add items to the queue with Offer
+		tasks.offer("Clean dishes");
+		tasks.offer("Sweep floor");
+		tasks.offer("clean counters");
+		tasks.offer("scrub ceiling");
+		
+		// Peek allows the next item to be viewed, without changing the list
+		System.out.println("The next tasks is: " + tasks.peek());
 
+		while (!tasks.isEmpty()) {
+			// Use poll to get and remove the next item
+			System.out.println(tasks.poll());
+			System.out.println("Tasks remaining: " + tasks.size());
+		}
 
 		/////////////////////
 		// PROCESSING ITEMS IN A QUEUE
@@ -130,16 +163,37 @@ public class Lecture {
 		System.out.println("####################");
 		System.out.println();
 
-
+		Stack<String> history = new Stack<String>();
 
 		////////////////////
 		// PUSHING ITEMS TO THE STACK
 		//////////////////// 
 
+		// Add items to the Stack using push
+		history.push("http://www.google.com");
+		history.push("http://cnn.com");
+		history.push("http://techelevator.com");
+		history.push("https://blog.codinghorror.com");
+		history.push("http://dashboard.techelevator.com");
 
 		////////////////////
 		// POPPING THE STACK
 		////////////////////
 
+		while (!history.isEmpty()) {
+			// Get and remove the next item from the Stack using pop()
+			String previousPage = history.pop();
+			System.out.println("Previous Page: " + previousPage);
+		}
+		
+		int[] nums = { 10, 20, 30, 40, 50 };
+		Stack<Integer> numStack = new Stack<Integer>();
+		for (int n : nums) {
+			numStack.push(n);
+		}
+		while (!numStack.isEmpty() ) {
+			System.out.println(numStack.pop());;
+		}
+		
 	}
 }
