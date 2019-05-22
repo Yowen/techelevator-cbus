@@ -1,5 +1,6 @@
 package com.techelevator;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -35,7 +36,27 @@ public class Exercises {
 	 *
 	 */
 	public String animalGroupName(String animalName) {
-		return null;
+		
+		Map<String, String> animalGroupNames = new HashMap<String, String>();
+		animalGroupNames.put("Rhino", "Crash");
+		animalGroupNames.put("Giraffe", "Tower");
+		animalGroupNames.put("Elephant", "Herd");
+		animalGroupNames.put("Lion", "Pride");
+		animalGroupNames.put("Crow", "Murder");
+		animalGroupNames.put("Pigeon", "Kit");
+		animalGroupNames.put("Flamingo", "Pat");
+		animalGroupNames.put("Deer", "Herd");
+		animalGroupNames.put("Dog", "Pack");
+		animalGroupNames.put("Crocodile", "Float");
+		
+		String name = "unknown";
+		
+		for (String key : animalGroupNames.keySet()) {
+			if (key.equalsIgnoreCase(animalName)) {
+				name = animalGroupNames.get(key);
+			}
+		}
+		return name;
 	}
 
 	/*
@@ -77,6 +98,10 @@ public class Exercises {
 	public Map<String, Integer> robPeterToPayPaul(Map<String, Integer> peterPaul) {
 		return null;
 	}
+	
+
+
+	
 
     /*
 	 * Modify and return the given map as follows: if "Peter" has $50 or more, AND "Paul" has $100 or more,
