@@ -13,17 +13,18 @@ public class Lecture {
 		int x = 10;
 		int y = x;
 		x = 20;
+
 		
 		/* Reference Type */
 		int[] numbers = { 10, 20, 30 , 40 };
 		int[] otherNumbers = numbers;
 		numbers[1] = 99;
 		otherNumbers[3] = 42;
-		
+
 		houseAt123WayAve.setNumberOfFloors(2);
 		String firstName = "joe";
 		String firstNameUpperCase = firstName.toUpperCase();
-
+		
 		int z = 20;
 		int q = 20;
 		if (z == q) {
@@ -35,6 +36,17 @@ public class Lecture {
 		if (str1 == str2) {
 			System.out.println("The strings are equal");
 		}
+		
+		if (str1.equals(str2)) {
+			System.out.println("The string are . equals");
+		}
+		
+		String str3 = str1;
+		if (str1 == str3) {
+			System.out.println("1 and 3 are the same reference");
+		}
+		
+		
 		
 		System.out.println("************************************");
 		System.out.println("****** MAKING A STRING OBJECT ******");
@@ -66,15 +78,15 @@ public class Lecture {
 		System.out.println(fourth);
 		
 		/* length */
-		int nameLength = 0;
+		int nameLength = name.length();
 		System.out.println("The length of the String "  + name + " is " + nameLength);
 		
 		/* SubString */
 		String s = "Tech Elevator";
-		String subStringOfs = "";
+		String subStringOfs = s.substring(2, 6);
 		System.out.println(subStringOfs);
 		
-		String subStringToEnd = "";
+		String subStringToEnd = s.substring(2);
 		System.out.println(subStringToEnd);
 		
 		/* Contains */
@@ -93,12 +105,11 @@ public class Lecture {
 		/*
 		 * startsWith()
 		 */
-		/*
-		 * indexOf()
-		 */
-		/*
-		 * lastIndexOf()
-		 */
+
+		 System.out.println("String starts with he " + hello.startsWith("He"));
+		 System.out.println("String ends with lo " + hello.endsWith("World!"));
+		
+
 		/*
 		 * replace()
 		 */
@@ -118,9 +129,6 @@ public class Lecture {
 		/* String.join()  <-- available only on the String class and not the string object
 		 */
 		System.out.println(x);
-		
-		
-
 		
 		System.out.println();
 		System.out.println("**********************");
