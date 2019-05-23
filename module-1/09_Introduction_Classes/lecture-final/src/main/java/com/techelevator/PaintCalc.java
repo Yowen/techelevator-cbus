@@ -1,11 +1,15 @@
 package com.techelevator;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class PaintCalc {
 
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
+		
+		List<Rectangle> walls = new ArrayList<Rectangle>();
 		
 		while(true) {
 			
@@ -26,6 +30,10 @@ public class PaintCalc {
 				int area = height * width;
 				System.out.println("Added "+height+"x"+width+" wall - "+area+" square feet");
 				
+				Rectangle wall = new Rectangle(width, height);
+				walls.add(wall);
+				System.out.println("Added " + wall);
+				
 			} else if(userChoice.equals("2")) {
 				
 				// Here we need to sum up the areas of all walls that have been entered
@@ -34,7 +42,13 @@ public class PaintCalc {
 				System.out.println("Wall 3: 10x15 - 150 square feet"); // PROTOTYPE ONLY!!!
 				System.out.println("Wall 4: 10x15 - 150 square feet"); // PROTOTYPE ONLY!!!
 				
-				int totalArea = 600; // PROTOTYPE ONLY!!!
+				int totalArea = 0; // PROTOTYPE ONLY!!!
+				int count = 0;
+				for (Rectangle wall : walls) {
+					totalArea += wall.getArea();
+					System.out.println("Wall " + count + ": " + wall);
+					count++;
+				}
 				System.out.println("===============================");
 				System.out.println("Total Area: "+totalArea+" square feet");
 				

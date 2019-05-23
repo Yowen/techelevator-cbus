@@ -4,13 +4,21 @@ public class RectangleDemo {
 
 		public static void main(String [] args) {
 			
-			Rectangle rect1 = new Rectangle();
-			Rectangle rect2 = new Rectangle();
-			rect1.setHeight(10);
-			rect1.setWidth(20);
+			Rectangle rect1 = new Rectangle(20, 10);
+			Rectangle rect2 = new Rectangle(20, 10);
 			
-			rect2.setHeight(-15);
-			rect2.setWidth(-8);
+			System.out.println(rect1.isLargerThan(rect2));
+			rect1.isLargerThan(20, 40);
+			
+			
+			
+			System.out.println(rect1);
+			System.out.println(rect2);
+			
+			System.out.println("== " + (rect1 == rect2));
+			System.out.println("equals() " + (rect1.equals(rect2)));
+			
+			
 		}
 
 }
