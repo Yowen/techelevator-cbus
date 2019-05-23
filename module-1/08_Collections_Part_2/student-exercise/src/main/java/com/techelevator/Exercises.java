@@ -3,6 +3,7 @@ package com.techelevator;
 import java.util.List;
 
 import java.util.TreeMap;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -321,7 +322,21 @@ public class Exercises {
 	 *
 	 */
 	public Map<String, Integer> last2Revisited(String[] words) {
-		return null;
+		Map<String, Integer> last2Revisited = new HashMap<String, Integer>();
+		
+		for (String str : words) {
+	        String end = str.substring(str.length() - 2);
+	        int count = 0;
+
+	        for (int i = 0; i < str.length() - 2; i++) {
+	            String sub = str.substring(i, i + 2);
+	            if (sub.equals(end)) {
+	            	count++;
+	            }
+	        }
+			last2Revisited.put(str, count);
+		}
+		return last2Revisited;
 	}
 
 	/*
@@ -331,7 +346,23 @@ public class Exercises {
 	 distinctValues( ["jingle", "bells", "jingle", "bells", "jingle", "all", "the", "way"] ) -> ["jingle", "bells", "all", "the", "way"]
 	 */
 	public List<String> distinctValues(List<String> stringList) {
-		return null;
+		List<String> distinctValues = new ArrayList<String>();
+		
+		for (String word : stringList) {
+			if (distinctValues.contains(word)) {
+				continue;
+			}
+			else {
+				distinctValues.add(word);
+			}
+		}
+		return distinctValues;
+		
+		// Solution provided by Michael as an alternative, more optimized answer
+		//
+		// Set<String> distinctValues = new LinkedHashSet<String>(stringList);
+		// List<String> returnList = new LinkedList<String>(distinctValues);
+		// return returnList
 	}
 
 }

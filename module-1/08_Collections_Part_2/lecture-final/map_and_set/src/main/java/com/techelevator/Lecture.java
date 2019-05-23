@@ -1,13 +1,14 @@
 package com.techelevator;
 
 import java.util.HashMap;
-import java.util.TreeMap;
-import java.util.TreeSet;
+
+import java.util.HashSet;
 import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
-import java.util.HashSet;
-
+import java.util.TreeMap;
+import java.util.TreeSet;
 
 public class Lecture {
 
@@ -22,14 +23,11 @@ public class Lecture {
 		Map<String, String> animalNoises = new HashMap<String, String>();
 		
 		/* ADDING ITEMS TO A MAP */
-		
+
 		animalNoises.put("Cow", "Moo");
 		animalNoises.put("Chicken", "Cluck");
 		animalNoises.put("Dog", "Bark");
 		animalNoises.put("Cat", "Meow");
-		animalNoises.put("Lion", "Roar");
-		animalNoises.put("Duck", "Roar");
-
 		
 		/* UPDATING AN ITEM IN A MAP */
 		animalNoises.put("Duck", "Quack");
@@ -38,10 +36,18 @@ public class Lecture {
 		String catNoise = animalNoises.get("Cat");
 		System.out.println("The Cat says " + catNoise);;
 		System.out.println("The Wolf says " + animalNoises.get("Wolf"));
-		/* REMOVING AN ITEM FROM A MAP */
-		String lionNoise = animalNoises.remove("Lion");
-		System.out.println("The Lion Says " + lionNoise);;
+
+		// keys must be unique, but the values do not
+		animalNoises.put("Lion", "Roar");
+		animalNoises.put("Duck", "Roar");
 		
+		/* REMOVING AN ITEM FROM A MAP */
+		// An item can be removed from the Map using remove(key), if the 
+		// key exists the value will be returned.
+		String lionNoise = animalNoises.remove("Lion");
+		System.out.println("The Lion Says " + lionNoise);
+		
+		// If the key does not exists, the null returned
 		String lionNoiseAfterRemove = animalNoises.remove("Lion");
 		System.out.println("Now the Lion says " + lionNoiseAfterRemove);
 		
@@ -50,15 +56,22 @@ public class Lecture {
 		boolean doesCatExist = animalNoises.containsKey("Lion");
 		System.out.println("The key, Cat, exists is " + doesCatExist);
 		
+		// containsKey(key) returns TRUE if the KEY exists in the Map
+		boolean doesCatExists = animalNoises.containsKey("Cat");
+		System.out.println("The key, Cat, exists is " + doesCatExists);
+		
+		// containsValue(value) returns TRUE if the VALUE exists in the Map
 		boolean doesMeowExist = animalNoises.containsValue("Meow");
 		System.out.println("The Map has the value Meow: " + doesMeowExist);
 		
 		System.out.println();
 		/* LOOPING OVER A MAP */
+
 		for (String animalName : animalNoises.keySet()) {
 			String noise = animalNoises.get(animalName);
 			System.out.println("The " + animalName + " says " + noise);
 		}
+
 		
 		System.out.println();
 		/* THE MAP KEY AND VALUE DATA TYPES */
@@ -77,7 +90,6 @@ public class Lecture {
 		for (Integer number : numbersToWords.keySet()) {
 			System.out.println(number + " is " + numbersToWords.get(number));;
 		}
-		
 					
 		System.out.println("####################");
 		System.out.println("       SETS");
@@ -96,6 +108,7 @@ public class Lecture {
 		setOfNumbers.add(301);
 		setOfNumbers.add(42);
 		setOfNumbers.add(57);
+
 		
 		/* LOOP OVER A SET */
 		for (Integer number : setOfNumbers) {
@@ -110,9 +123,11 @@ public class Lecture {
 		for (String instructor : instructors) {
 			instructorSet.add(instructor);
 		}
+
 		for (String instructor : instructorSet) {
 			System.out.println(instructor);
 		}
+
 	}
 
 }
