@@ -1,7 +1,6 @@
 package com.techelevator;
 
 public class Rectangle {
-	
 	private int height;
 	private int width;
 	
@@ -10,7 +9,6 @@ public class Rectangle {
 	}
 	
 	public Rectangle(int width, int height) {
-		this.setHeight(height);
 		this.width = Math.abs(width);
 		this.height = Math.abs(height);
 	}
@@ -22,11 +20,11 @@ public class Rectangle {
 	public void setHeight(int height) {
 		this.height = Math.abs(height);
 	}
-	
+
 	public int getWidth() {
 		return width;
 	}
-	
+
 	public void setWidth(int width) {
 		this.width = Math.abs(width);
 	}
@@ -41,6 +39,7 @@ public class Rectangle {
 	
 	public boolean isLargerThan(int width, int height) {
 		return (this.height * this.width) > width * height; 
+
 	}
 	
 	@Override
@@ -53,4 +52,5 @@ public class Rectangle {
 		Rectangle other = (Rectangle) obj;
 		return this.height == other.height && this.width == other.width;
 	}
+
 }
