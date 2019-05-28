@@ -2,6 +2,9 @@ package com.techelevator;
 import com.techelevator.games.cards.Card;
 import com.techelevator.games.cards.Deck;
 
+import com.techelevator.games.cards.Card;
+import com.techelevator.games.cards.Deck;
+
 public class MainProgram {
 	
 	public static void main(String[] args) {
@@ -16,12 +19,12 @@ public class MainProgram {
 		
 		Card toReplace = deck.deal();
 		toReplace.flip();
-		System.out.println(toReplace);;
+
+		System.out.println(toReplace);
 		toReplace.flip();
 		deck.placeCardBackInDeck(toReplace);
-		System.out.println(deck);;
+		System.out.println(deck);
 		
-
 		Card aceOfSpades = new Card("s", "A");
 		
 		System.out.println(aceOfSpades);

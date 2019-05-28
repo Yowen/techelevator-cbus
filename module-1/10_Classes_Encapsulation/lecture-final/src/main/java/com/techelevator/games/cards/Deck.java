@@ -9,7 +9,8 @@ public class Deck {
 	private List<Card> cards = new ArrayList<Card>();
 	
 	private final static String[] suits = new String[] {"c", "s", "d", "h" };
-	private final static String[] ranks = new String[] {"A", "2", "3", "4", "5", "6", "7", "8", "9", "T", "J", "Q", "K"};
+
+	private final static String[] ranks = new String[] { "A", "2", "3", "4", "5", "6","7","8","9", "T", "J", "Q", "K"};
 	
 	// When constructed build a deck
 	public Deck() {
@@ -19,31 +20,23 @@ public class Deck {
 				cards.add(currentCard);
 			}
 		}
-		
 	}
-	
 	// shuffle
 	public void shuffle() {
 		Collections.shuffle(cards);
 	}
-	
 	// draw/deal
 	public Card deal() {
 		if (cards.size() > 0) {
 			return cards.remove(0);
-
-		}
-		else {
+		} else {
 			return null;
 		}
 	}
-	
 	// Re-add card
 	public void placeCardBackInDeck(Card card) {
 		cards.add(card);
 	}
-	
-	// get remaining card count
 	public int size() {
 		return cards.size();
 	}
