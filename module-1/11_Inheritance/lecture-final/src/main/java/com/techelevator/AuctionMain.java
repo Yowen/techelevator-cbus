@@ -8,7 +8,8 @@ public class AuctionMain {
 		
 		Scanner in = new Scanner(System.in);
 		
-		Auction auction = new Auction("Record");
+		//Auction auction = new Auction("Record");
+		BuyoutAuction auction = new BuyoutAuction("Record", 15);
 		
 		System.out.println("Buy my " + auction.getItemForSale());
 		
