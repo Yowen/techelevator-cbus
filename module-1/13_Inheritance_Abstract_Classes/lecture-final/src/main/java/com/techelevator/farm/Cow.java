@@ -6,4 +6,15 @@ public class Cow extends FarmAnimal {
 		super("Cow", "moo!");
 	}
 
+	@Override
+	public String eat() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void sleep() {
+		kick();
+	}
+
 }
