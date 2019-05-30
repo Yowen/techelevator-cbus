@@ -2,22 +2,29 @@ package com.techelevator.postageCalculator;
 
 public class FexEd implements DeliveryDriver {
 
+	private String name = "FexEd";
+	
 	@Override
-	public double calculateRate(int distance, double weight, int classType) {
-		double rate = 0;
+	public double calculateRate(int distance, double weight) {
+		double rate = 20.00;
+		
 		if (distance > 500) {
-			rate = rate ;
-
+			rate += 5.00;
 			if (weight > 48) {
-				
+				rate += 3.00;
 			}
+			return rate;
 		}
 		else {
 			if (weight > 48) {
-				
+				rate += 3.00;
 			}
+			return rate;
 		}
-		return 0;
-		
+	}
+	
+	@Override
+	public String getName() {
+		return name;
 	}
 }
