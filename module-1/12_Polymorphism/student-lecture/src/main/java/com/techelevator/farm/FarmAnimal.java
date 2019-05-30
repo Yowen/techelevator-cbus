@@ -1,14 +1,12 @@
 package com.techelevator.farm;
 
-public class FarmAnimal {
+public class FarmAnimal implements Singable {
 	private String name;
 	private String sound;
-	private int price;
 
-	public FarmAnimal(String name, String sound, int price) {
+	public FarmAnimal(String name, String sound) {
 		this.name = name;
 		this.sound = sound;
-		this.price = price;
 	}
 	
 	public String getName( ) {
@@ -17,8 +15,6 @@ public class FarmAnimal {
 	public String getSound( ) {
 		return sound;
 	}
-	public int getPrice() {
-		return price;
-	}
+
 	
 }

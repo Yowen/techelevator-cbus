@@ -1,8 +1,13 @@
 package com.techelevator.farm;
 
-public class Sheep extends FarmAnimal{
+public class Sheep extends FarmAnimal implements Sellable {
 
 	public Sheep() {
-		super("Sheep", "Baaa!", 50);
+		super("Sheep", "Baaa!");
+	}
+
+	@Override
+	public int getPrice() {
+		return 50;
 	}
 }

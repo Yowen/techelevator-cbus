@@ -1,9 +1,14 @@
 package com.techelevator.farm;
 
-public class Tractor extends FarmAnimal {
+public class Tractor implements Singable {
+	@Override
+	public String getName() {
+		return "Tractor";
+	}
 
-	public Tractor() {
-		super("Tractor", "Rrrrrr!", 20);
+	@Override
+	public String getSound() {
+		return "Rrrrrr!";
 	}
 	
 }
