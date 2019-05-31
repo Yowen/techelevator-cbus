@@ -16,5 +16,4 @@ public class Cow extends FarmAnimal {
 	public void sleep() {
 		kick();
 	}
-	
 }

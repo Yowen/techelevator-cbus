@@ -1,6 +1,7 @@
 package com.techelevator.farm;
 
-public class Blobert extends FarmAnimal implements Alien{
+public class Blobert extends FarmAnimal implements Alien {
+
 	public Blobert() {
 		super("Blobert", "blorp");
 	}
