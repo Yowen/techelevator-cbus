@@ -11,7 +11,13 @@ public class MaxEnd3 {
      */
     public int[] makeArray(int[] nums) {
         int largerNum = (nums[0] > nums[nums.length - 1]) ? nums[0] : nums[nums.length - 1];
-
+        /*
+        if (num[0] > nums[nums.length - 1]) {
+         	int largerNum = nums[0];
+        }
+        else {
+        	int largerNum = nums[nums.length - 1]
+        */
         for (int i = 0; i < nums.length; i++){
             nums[i] = largerNum;
         }
