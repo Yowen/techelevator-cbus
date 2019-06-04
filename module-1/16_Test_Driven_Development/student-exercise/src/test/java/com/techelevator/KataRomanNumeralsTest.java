@@ -26,4 +26,17 @@ public class KataRomanNumeralsTest {
 		int num = romanNumerals.convertToDigit("II");
 		Assert.assertEquals("Incorrect value for II", 2, num);
 	}
+	
+	@Test
+	public void three_character_numbers() {
+		int num = romanNumerals.convertToDigit("DCL");
+		Assert.assertEquals("Incorrect value for DCL", 650, num);
+	}
+	
+	@Test
+	public void four_character_numbers() {
+		int num = romanNumerals.convertToDigit("MCD");
+		Assert.assertEquals("Incorrect value for MDC", 1400, num);
+	}
+	
 }
