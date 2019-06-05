@@ -28,7 +28,7 @@ public class FlushingExample {
 				 *  half a second so the file doesn't fill up too fast
 				 */
 				Thread.sleep(500);
-				
+				buffered.flush();
 			}
 		}
 
