@@ -6,7 +6,6 @@ import java.util.Scanner;
 import java.util.Scanner;
 
 public class EarthToSunWeightConverter {
-
 	/*
 	 * Command line programs usually follow this work flow:   Take Data, Calculate Data, Give Results
 	 * 
