@@ -11,10 +11,16 @@ public class MainStringCalc {
 		
 		List<String> values = menu.getValuesFromUser();
 
-		List<String> results = strCalc.calculate(values);	
-		
-		for (String result : results) {
-			menu.displayUserMessage(result);
+		try {
+			List<String> results = strCalc.calculate(values);	
+			
+			for (String result : results) {
+				menu.displayUserMessage(result);
+			}
+		} catch (NullPointerException e) {
+			menu.displayUserMessage("The list was null");
+		} catch (InvalidStringException e) {
+			menu.displayUserMessage("We don't handle the " + e.getOriginalValue());
 		}
 
 
