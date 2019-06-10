@@ -23,12 +23,12 @@ public class FileReaderMain {
 				String line = fileScanner.nextLine();
 				System.out.println(line);
 				lineCount--;
-			}
-			
+			}	
 			
 		} catch (FileNotFoundException e) {
 			System.out.println("File " + file.getAbsolutePath() + " not found!");
 		}
+		in.close();
 	
 	}
 
