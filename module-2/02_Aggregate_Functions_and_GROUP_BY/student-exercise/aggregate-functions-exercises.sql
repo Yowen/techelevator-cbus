@@ -102,16 +102,26 @@ WHERE gnpold IS NOT NULL AND gnp IS NOT NULL;
 -- 17. The average population of cities in each country (hint: use city.countrycode)
 -- ordered from highest to lowest.
 -- (highest avg population: 4017733.0000, "SGP")
-
+SELECT AVG(population) AS avg_population, countrycode FROM city
+GROUP BY city.countrycode
+ORDER BY avg_population DESC;
 	
 -- 18. The count of cities in each state in the USA, ordered by state name.
 -- (45 rows)
-	
+SELECT COUNT(name) AS city_count FROM city
+WHERE countrycode = 'USA'
+GROUP BY district
+ORDER BY district
+
 -- 19. The count of countries on each continent, ordered from highest to lowest.
 -- (highest count: 58, "Africa")
+SELECT COUNT(name) AS country_count FROM country
+GROUP BY continent
+ORDER BY continent ASC;	
 	
 -- 20. The count of cities in each country ordered from highest to lowest.
 -- (largest number of  cities ib a country: 363, "CHN")
+
 	
 -- 21. The population of the largest city in each country ordered from highest to 
 -- lowest.
