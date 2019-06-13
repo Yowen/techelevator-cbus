@@ -122,14 +122,13 @@ LIMIT 10;
 
 -- 15. The store ID, street address, total number of rentals, total amount of sales (i.e. payments), and average sale of each store 
 -- (Store 1 has 7928 total rentals and Store 2 has 8121 total rentals)
-SELECT store.store_id, address.address, COUNT(rental.rental_id) AS rental_count, SUM(payment.amount), AVG(payment.amount)
+SELECT store.store_id, address.address, COUNT(rental.rental_id) AS rental_count, SUM(payment.amount) AS sum_count, AVG(payment.amount) AS avg_sale
 FROM store
 JOIN address ON store.address_id = address.address_id
-JOIN customer ON customer.store_id = store.store_id
-JOIN rental ON rental.customer_id = customer.customer_id
-JOIN payment ON payment.rental_id = rental.rental_id
+JOIN inventory ON store.store_id = inventory.store_id
+JOIN rental ON inventory.inventory_id = rental.inventory_id
+JOIN payment ON rental.rental_id = payment.rental_id
 GROUP BY store.store_id, address.address
-
 
 -- 16. The top ten film titles by number of rentals
 -- (#1 should be “BUCKET BROTHERHOOD” with 34 rentals and #10 should have 31 rentals)
