@@ -41,6 +41,4 @@
 -- (Did either deletes succeed? Why?)
 -- <YOUR ANSWER HERE>
 
--- 12. Check database metadata to determine all constraints of the film id, and
--- describe any remaining adjustments needed before the film "Euclidean PI" can
--- be removed from the film table.
+

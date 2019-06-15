@@ -3,18 +3,22 @@
 --INNER JOIN  (DEFAULT IF JUST USE JOIN)
 SELECT one.number AS one_number, one.description as one_description, two.number as two_number, two.description as two_description
 FROM one 
+JOIN two ON one.number = two.number;
 -- Complte the Inner Join Here
 
 
 --LEFT JOIN  (Left Outer Join)
 SELECT one.number AS one_number, one.description as one_description, two.number as two_number, two.description as two_description
 FROM one
+LEFT JOIN two ON one.number = two.number;
+
 -- Complte the Left Join Here
 
 
 --RIGHT JOIN  (Right Outer Join)
 SELECT one.number AS one_number, one.description as one_description, two.number as two_number, two.description as two_description
 FROM one
+RIGHT JOIN two ON one.number = two.number;
 -- Complte the Right Join Here
 
 
