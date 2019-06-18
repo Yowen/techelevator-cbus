@@ -42,3 +42,5 @@ CREATE TABLE person_phone (
         constraint fk_person_person_id foreign key (user_id) references person(user_id),
         constraint fk_phone_phone_id foreign key (phone_id) references phone(phone_id)             
 );
+
+
