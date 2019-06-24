@@ -16,6 +16,10 @@ div {
     background-color: orange;
 }
 
+#idExample .descendentOne {
+    color: red;
+}
+
 div {
     border-style: solid;
     margin: 10px;
@@ -26,6 +30,18 @@ span {
     border-style: dotted;
     margin: 10px;
     padding: 10px;
+}
+
+#divThree > span {
+    color: yellow;
+}
+
+.spanOne ~ span {
+    background: orange;
+}
+
+div:hover {
+    background: yellow;
 }
 
 
