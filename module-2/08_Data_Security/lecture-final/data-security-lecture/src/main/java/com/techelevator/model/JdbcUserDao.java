@@ -66,7 +66,7 @@ public class JdbcUserDao implements UserDao {
         String sqlSearchForUser = "SELECT * FROM users WHERE UPPER(username) = ?";
        
         
-        SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSearchForUser, userName.toUpperCase() );
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSearchForUser, userName.toUpperCase());
         if (results.next()) {
             String storedSalt = results.getString("salt");
             String storedPassword = results.getString("password");
