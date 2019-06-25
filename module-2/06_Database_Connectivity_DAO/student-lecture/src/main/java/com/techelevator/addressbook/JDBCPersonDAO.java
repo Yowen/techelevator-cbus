@@ -71,7 +71,7 @@ public class JDBCPersonDAO implements PersonDAO {
 		p.setId(result.getInt("user_id"));
 		p.setFirstName(result.getString("first_name"));
 		p.setLastName(result.getString("last_name"));
-		return null;
+		return p;
 	}
 
 }
