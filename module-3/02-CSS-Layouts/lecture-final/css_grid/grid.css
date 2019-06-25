@@ -6,6 +6,7 @@
     margin: auto;
     top: 50px;
     position: relative;
+    padding: 20px;
 }
 
 .box {
@@ -34,7 +35,29 @@
 }
 
 .container {
-
+    display: grid;
+    grid-template-columns: 4fr 1fr 2fr;
+    grid-template-areas: 
+        "header header header"
+        "main   .      sidebar"
+        "footer footer footer";
+        grid-column-gap: 20px;
+        grid-row-gap: 20px;
 }
 
+.item-a {
+    grid-area: header;
+}
+.item-b {
+    grid-area: main;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.item-c {
+    grid-area: sidebar;
+}
+.item-d {
+    grid-area: footer;
+}
 

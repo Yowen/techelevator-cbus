@@ -1,6 +1,7 @@
 
 #flex-example div {
     width: 100px;
+    /* height: 100px; */
     margin: 10px;
     text-align: center;
     color: white;
@@ -32,6 +33,12 @@ section#flex-example {
     width: 75%;
     background-color: gray;
     margin: auto;
+
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: flex-start;
+    flex-wrap: wrap;
 }
 
 
