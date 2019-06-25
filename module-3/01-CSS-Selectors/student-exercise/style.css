@@ -16,25 +16,130 @@
 
 aside {
   position: fixed;
+  margin-top: 0px;
+  margin-block-start: 0em;
+  padding-right: 33px;
+  padding-bottom: 270px;
+  border-right: 1px solid var(--light-blue);
+  z-index: 999;
 }
 
 aside img {
   height: 106px;
   display: block;
   width: auto;
-  margin-left: auto;
+  margin-left: 38px;
   margin-right: auto;
+}
+
+aside ul {
+  padding-left: 34px;
+  font-size: 0px;
 }
 
 aside ul a {
   color: var(--blue);
   text-decoration: none;
-  font-weight: bold;
   text-transform: uppercase;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+aside ul a:hover {
+  color: var(--light-blue);
 }
 
 aside li {
   list-style-type: none;
-  border-bottom: 2px solid var(--light-blue);
+  border-bottom: 1px solid var(--light-blue);
   text-align: center;
+  top: -20px;
+  padding-bottom: 14px;
+  padding-top: 14px;
 }
+
+main {
+  position: relative;
+  left: 195px;
+  z-index: 99;
+}
+
+main > img {
+  width: auto;;
+  height: 330px;
+  margin-bottom: 38px;
+}
+
+header img {
+  width: 220px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+header p {
+  font-size: 0px;
+}
+
+section {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0px;
+
+}
+
+section > div {
+  position: relative;
+  display: inline-block;
+  width: 307px;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: -5px;
+  margin-left: -5px;
+  padding-top: -5px;
+}
+
+div#our-work {
+  border-right: 1px solid rgba(170, 239, 135, 0.8);
+  border-left: 1px solid rgba(170, 239, 135, 0.8);
+}
+
+div i {
+  margin-right: 10px;
+}
+
+section > div h2 {
+  color: #8cc36f;
+  font-size: 19px;
+  margin-top: -5px;
+}
+
+section > div p {
+  font-size: 15px;
+  color: var(--subheading);
+}
+
+footer {
+  color: var(--subheading);
+}
+
+div#social h3 {
+  font-size: 13px;
+  margin-bottom: -5px;
+}
+
+div#social p {
+  font-size: 12px;
+  margin-top: 5px;
+  margin-bottom: 2px;
+}
+
+div#logos img {
+  height: 50px;
+  width: auto;
+}
+
+footer > p {
+  font-size: 12px;
+  margin: 1px;
+}
+
