@@ -51,6 +51,11 @@
 			 			<c:set var="cssStyle" value="buzz"/>
 			 			<c:set var="fizzBuzzValue" value="Buzz!"/>
 			 		</c:when>
+			 		
+			 		<c:when test="${number % 5 == 0 && number % 3 == 0}">
+			 			<c:set var="cssStyle" value="fizzbuzz"/>
+			 			<c:set var="fizzBuzzValue" value="FizzBuzz!"/>
+			 		</c:when>
 			 	</c:choose>
 			 	<li class="${cssStyle}">${fizzBuzzValue}</li>
 			 </c:forEach>
