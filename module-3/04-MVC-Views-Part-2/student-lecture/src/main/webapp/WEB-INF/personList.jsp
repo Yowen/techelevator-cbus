@@ -15,12 +15,17 @@
 			</tr>
 			<c:forEach var="person" items="${personList}">
 				<tr>
-					<td>${person.firstName}</td>
-					<td>${person.lastName}</td>
-					<td>${person.age}</td>
-					<td>${person.adult}</td>
+					<td><c:out value="${person.firstName}"/></td>
+					<td><c:out value="${person.lastName}"/></td>
+					<td><c:out value="${person.age}"/></td>
+					<td><c:out value="${person.adult}"/></td>
 				</tr>
 			</c:forEach>
 		</table>
+		
+		<div>
+			<h1>${person.firstName} ${person.lastName}</h1>
+			<p>${person.address.city}, ${person.address.state} ${person.address.zipcode}
+		</div>
 	</body>
 </html>

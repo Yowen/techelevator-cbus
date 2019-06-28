@@ -4,6 +4,7 @@ public class Person {
 	private String firstName;
 	private String lastName;
 	private int age;
+	private Address address;
 
 	public Person(String firstName, String lastName, int age) {
 		this.firstName = firstName;
@@ -26,4 +27,13 @@ public class Person {
 	public boolean isAdult() {
 		return age >= 18;
 	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
 }
