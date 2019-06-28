@@ -20,6 +20,11 @@ public class PersonServlet extends HttpServlet {
 		personList.add(new Person("Jeff", "Prescott", 12));
 
 		req.setAttribute("personList", personList);
+		
+		Person singlePerson = new Person("John", "Doe", 25);
+		singlePerson.setAddress(new Address("123 Street", "<script>alert('it works');</script>", "OH", "43220"));
+		
+		req.setAttribute("john", singlePerson);
 
 		getServletContext().getRequestDispatcher("/WEB-INF/personList.jsp").forward(req, resp);
 	}

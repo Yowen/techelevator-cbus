@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"  %> 
 
 
 <!DOCTYPE html>
@@ -48,7 +49,7 @@
 				</c:if>
 				<tr class="${rowClassAttribute}">
 					<td>${feet}</td> 
-					<td>${feet * .3048}</td>
+					<td> <fmt:formatNumber type="number" maxFractionDigits="2" value="${feet * .3048}" />  </td>
 				</tr>	
 			</c:forEach>
 		</table>
