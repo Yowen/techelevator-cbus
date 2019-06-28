@@ -27,17 +27,11 @@
 			</ul>
 		</div>
 
+
 		<!-- Container for all of the Products -->
 		<!-- The list of products is available using the `products` variable -->
-		<c:forEach var="item" items="${getAll}">
-			<div id="grid">
-
-				<!-- 
-			The following HTML shows different examples of what HTML could be rendered based on different rules. 
-			For purposes of demonstration we've written it out so you can see it when you load the page up. 
-			-->
-
-				<!-- Standard Product -->
+		<div id="grid">
+			<c:forEach var="product" items="${products}">
 				<div class="tile ">
 					<!-- Link to the Detail page using the product id (e.g. products/detail?id=1) -->
 					<a class="product-image" href="#"> <img
@@ -55,54 +49,77 @@
 						<p class="price">$939.00</p>
 					</div>
 				</div>
+			</c:forEach>
+			<!-- 
+			The following HTML shows different examples of what HTML could be rendered based on different rules. 
+			For purposes of demonstration we've written it out so you can see it when you load the page up. 
+			-->
 
-				<div class="tile ">
-					<!-- Include this if the product is considered a Top Seller -->
-					<span class="banner top-seller">Top Seller!</span>
+			<!-- Standard Product -->
+			<div class="tile ">
+				<!-- Link to the Detail page using the product id (e.g. products/detail?id=1) -->
+				<a class="product-image" href="#"> <img
+					src="<c:url value="/images/product-images/grey-sofa.jpg" />" />
+				</a>
+				<div class="details">
+					<p class="name">Grey Sofa</p>
 
-					<!-- Link to the Detail page using the product id (e.g. products/detail?id=1) -->
-					<a class="product-image" href="#"> <img
-						src="<c:url value="/images/product-images/grey-sofa.jpg" />" />
-					</a>
-					<div class="details">
-						<p class="name">Grey Sofa</p>
-
-						<!-- .filled will make the star solid -->
-						<div class="rating">
-							<span class="filled">&#9734;</span> <span class="filled">&#9734;</span>
-							<span class="filled">&#9734;</span> <span class="filled">&#9734;</span>
-							<span>&#9734;</span>
-						</div>
-
-						<!-- Include this if the remaining quantity is greater than 0, but less than or equal to 5 -->
-						<span class="product-alert">Only 4 left!</span>
-						<p class="price">$939.00</p>
+					<!-- .filled will make the star solid -->
+					<div class="rating">
+						<span class="filled">&#9734;</span> <span class="filled">&#9734;</span>
+						<span>&#9734;</span> <span>&#9734;</span> <span>&#9734;</span>
 					</div>
-				</div>
 
-				<!-- Add the .sold-out class if the remaining quantity is 0 -->
-				<div class="tile sold-out">
-					<!-- Include this if the remaining quantity is 0 -->
-					<span class="banner">Sold Out</span>
-
-					<!-- Link to the Detail page using the product id (e.g. products/detail?id=1) -->
-					<a class="product-image" href="#"> <img
-						src="<c:url value="/images/product-images/grey-sofa.jpg" />" />
-					</a>
-					<div class="details">
-						<p class="name">Grey Sofa</p>
-
-						<!-- .filled will make the star solid -->
-						<div class="rating">
-							<span class="filled">&#9734;</span> <span>&#9734;</span> <span>&#9734;</span>
-							<span>&#9734;</span> <span>&#9734;</span>
-						</div>
-
-						<p class="price">$939.00</p>
-					</div>
+					<p class="price">$939.00</p>
 				</div>
 			</div>
-		</c:forEach>
+
+			<div class="tile ">
+				<!-- Include this if the product is considered a Top Seller -->
+				<span class="banner top-seller">Top Seller!</span>
+
+				<!-- Link to the Detail page using the product id (e.g. products/detail?id=1) -->
+				<a class="product-image" href="#"> <img
+					src="<c:url value="/images/product-images/grey-sofa.jpg" />" />
+				</a>
+				<div class="details">
+					<p class="name">Grey Sofa</p>
+
+					<!-- .filled will make the star solid -->
+					<div class="rating">
+						<span class="filled">&#9734;</span> <span class="filled">&#9734;</span>
+						<span class="filled">&#9734;</span> <span class="filled">&#9734;</span>
+						<span>&#9734;</span>
+					</div>
+
+					<!-- Include this if the remaining quantity is greater than 0, but less than or equal to 5 -->
+					<span class="product-alert">Only 4 left!</span>
+					<p class="price">$939.00</p>
+				</div>
+			</div>
+
+			<!-- Add the .sold-out class if the remaining quantity is 0 -->
+			<div class="tile sold-out">
+				<!-- Include this if the remaining quantity is 0 -->
+				<span class="banner">Sold Out</span>
+
+				<!-- Link to the Detail page using the product id (e.g. products/detail?id=1) -->
+				<a class="product-image" href="#"> <img
+					src="<c:url value="/images/product-images/grey-sofa.jpg" />" />
+				</a>
+				<div class="details">
+					<p class="name">Grey Sofa</p>
+
+					<!-- .filled will make the star solid -->
+					<div class="rating">
+						<span class="filled">&#9734;</span> <span>&#9734;</span> <span>&#9734;</span>
+						<span>&#9734;</span> <span>&#9734;</span>
+					</div>
+
+					<p class="price">$939.00</p>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
 
