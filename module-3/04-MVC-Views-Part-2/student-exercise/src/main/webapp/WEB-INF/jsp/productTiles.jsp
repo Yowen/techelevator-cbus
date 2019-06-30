@@ -21,13 +21,20 @@
 		 when you load the page up. -->
 
 		<c:forEach var="product" items="${products}">
+
+			<c:set var="product" value="${product}" scope="request" />
+
+			<c:url var="detailURL" value="/productDetail">
+				<c:param name="id" value="${product.id}" />
+			</c:url>
+
 			<c:choose>
 				<c:when test="${product.remainingStock == 0}">
 					<div class="tile sold-out">
 						<span class="banner">Sold Out</span>
 
 						<!-- Link to the Detail page using the product id (e.g. products/detail?id=1) -->
-						<a class="product-image" href="#"> <img
+						<a class="product-image" href="${detailURL}"> <img
 							src="<c:url value="/images/product-images/${product.imageName}" />" />
 						</a>
 						<div class="details">
@@ -57,7 +64,7 @@
 					<div class="tile ">
 
 						<!-- Link to the Detail page using the product id (e.g. products/detail?id=1) -->
-						<a class="product-image" href="#"> <img
+						<a class="product-image" href="${detailURL}"> <img
 							src="<c:url value="/images/product-images/${product.imageName}" />" />
 						</a>
 						<div class="details">

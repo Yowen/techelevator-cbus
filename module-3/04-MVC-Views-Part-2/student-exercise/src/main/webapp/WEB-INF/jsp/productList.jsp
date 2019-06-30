@@ -27,18 +27,24 @@
 			</ul>
 		</div>
 
-
 		<!-- Container for all of the Products -->
 		<!-- The list of products is available using the `products` variable -->
 		<div id="grid">
 			<c:forEach var="product" items="${products}">
+			
+				<c:set var="product" value="${product}" scope="request"/>
+				
+				<c:url var="detailURL" value="/productDetail">
+					<c:param name="id" value="${product.id}"/>
+				</c:url>
+				
 				<c:choose>
 					<c:when test="${product.topSeller == true}">
 
 						<div class="tile ">
 							<span class="banner top-seller">Top Seller!</span>
 							<!-- Link to the Detail page using the product id (e.g. products/detail?id=1) -->
-							<a class="product-image" href="#"> <img
+							<a class="product-image" href="${detailURL}"> <img
 								src="<c:url value="/images/product-images/${product.imageName}" />" />
 							</a>
 							<div class="details">
@@ -68,7 +74,7 @@
 						test="${product.remainingStock > 0 && product.remainingStock <= 5}">
 						<div class="tile ">
 
-							<a class="product-image" href="#"> <img
+							<a class="product-image" href="${detailURL}"> <img
 								src="<c:url value="/images/product-images/${product.imageName}" />" />
 							</a>
 							<div class="details">
@@ -97,7 +103,7 @@
 					<c:when test="${product.remainingStock == 0}">
 						<div class="tile sold-out">
 							<span class="banner">Sold Out</span> 
-							<a class="product-image" href="#"> <img
+							<a class="product-image" href="${detailURL}"> <img
 								src="<c:url value="/images/product-images/${product.imageName}" />" />
 							</a>
 							<div class="details">
@@ -126,7 +132,7 @@
 					<c:otherwise>
 						<div class="tile ">
 							<!-- Link to the Detail page using the product id (e.g. products/detail?id=1) -->
-							<a class="product-image" href="#"> <img
+							<a class="product-image" href="${detailURL}"> <img
 								src="<c:url value="/images/product-images/${product.imageName}" />" />
 							</a>
 							<div class="details">

@@ -37,6 +37,17 @@
 				
 				see exercise1-fizzbuzz.png for example output
 			 --%>
+			 <c:forEach begin="1" end="100" var="number">
+			 	<c:set var="cssStyle" value="" />
+			 	<c:set var="fizzBuzzValue" value="${number}" />
+			 	<c:choose>
+			 		<c:when test="${number % 3 == 0}">
+			 			<c:set var="cssStyle" value="fizz" />
+			 			<c:set var="fizzBuzzValue" value="Fizz!" />
+			 		</c:when>
+			 	</c:choose>
+			 	<li class="${cssStyle}">${fizzBuzzValue}</li>
+			 </c:forEach>
 		</ul>
 	</body>
 </html>

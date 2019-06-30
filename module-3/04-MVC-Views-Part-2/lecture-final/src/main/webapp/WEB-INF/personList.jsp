@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+ 
 
 <!DOCTYPE html>
 <html>
@@ -15,12 +16,22 @@
 			</tr>
 			<c:forEach var="person" items="${personList}">
 				<tr>
-					<td>${person.firstName}</td>
-					<td>${person.lastName}</td>
-					<td>${person.age}</td>
-					<td>${person.adult}</td>
+					<td><c:out value="${person.firstName}" /></td>
+					<td><c:out value="${person.lastName}" /></td>
+					<td><c:out value="${person.age}" /></td>
+					<td><c:out value="${person.adult}" /></td>
 				</tr>
 			</c:forEach>
 		</table>
+		
+		<div>
+			<h1><c:out value="${john.firstName}" /> <c:out value="${john.lastName}" /></h1>
+			<p><c:out value="${john.address.street}" /> <br />
+				<c:out value="${john.address.city}, ${john.address.state} ${john.address.zipcode}" />
+			
+			</p>
+		
+		</div>
+		
 	</body>
 </html>
