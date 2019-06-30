@@ -22,11 +22,12 @@
 
 		<c:forEach var="product" items="${products}">
 
-			<c:set var="product" value="${product}" scope="request" />
-
-			<c:url var="detailURL" value="/productDetail">
+			<c:url var="detailURL" value="/products/detail">
 				<c:param name="id" value="${product.id}" />
 			</c:url>
+
+			<fmt:formatNumber var="formattedCost" type="currency"
+				value="${product.price}" />
 
 			<c:choose>
 				<c:when test="${product.remainingStock == 0}">
@@ -55,7 +56,7 @@
 								</c:forEach>
 							</div>
 
-							<p class="price">$${product.price}</p>
+							<p class="price">${formattedCost}</p>
 						</div>
 					</div>
 				</c:when>
@@ -95,7 +96,7 @@
 									left!</p>
 							</c:if>
 
-							<p class="price">$${product.price}</p>
+							<p class="price">${formattedCost}</p>
 						</div>
 					</div>
 				</c:otherwise>

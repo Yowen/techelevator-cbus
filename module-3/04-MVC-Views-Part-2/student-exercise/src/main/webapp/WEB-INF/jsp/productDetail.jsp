@@ -8,28 +8,43 @@
 <!-- Container for the Product -->
 <!-- The current product is available using the `product` variable -->
 <div id="product-detail">
-	<img src="<c:url value="/images/product-images/grey-sofa.jpg" />" />
+
+	<img
+		src="<c:url value="/images/product-images/${product.imageName}" />" />
 	<div class="product-description">
-		<h3>Grey Sofa</h3>
+		<h3>${product.name}</h3>
 
 		<!-- .filled will make the star solid -->
-		<div class="rating">
-			<span class="filled">&#9734;</span> 
-			<span class="filled">&#9734;</span>
-			<span>&#9734;</span> 
-			<span>&#9734;</span> 
-			<span>&#9734;</span>
-		</div>
+		<c:forEach begin="1" end="5" var="num">
+			<c:choose>
+				<c:when test="${product.averageRating >= num}">
+					<span class="filled">&#9734;</span>
+				</c:when>
+
+				<c:otherwise>
+					<span>&#9734;</span>
+				</c:otherwise>
+			</c:choose>
+		</c:forEach>
 
 		<!-- Include this if the product has a Remaining Stock of 5 or less -->
-		<p class="alert-remaining">BUY NOW! Only 4 left!</p>
-		<p class="description">Large four seater grey sofa.</p>
-		<p class="price">$939.00</p>
+		<c:if test="${product.remainingStock <= 5}">
+			<p class="alert-remaining">BUY NOW! Only ${product.remainingStock} left!</p>
+		</c:if>
+		
+		<p class="description">${product.description}</p>
+		<fmt:formatNumber var="formattedCost" type="currency" value="${product.price}"/>
+		<p class="price">${formattedCost}</p>
 
-		<!-- If item is in stock -->
-		<button class="action">Add to Cart</button>
-		<!-- OR if item is out of stock -->
-		<!--<button disabled>Sold Out</button>-->
+		<c:choose>
+			<c:when test="${product.remainingStock == 0}">
+				<button disabled>Sold Out</button>
+			</c:when>
+			
+			<c:otherwise>
+				<button class="action">Add to Cart</button>
+			</c:otherwise>
+		</c:choose>
 	</div>
 </div>
 

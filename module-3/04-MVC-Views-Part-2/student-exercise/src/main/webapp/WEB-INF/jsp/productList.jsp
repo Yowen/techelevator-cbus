@@ -18,8 +18,10 @@
          querystring parameters to sort the page:
             - sortOrder (string) - PriceLowToHigh,PriceHighToLow,RatingHighToLow
     	-->
+
 		<div id="sorting-options">
 			<h3>Sort By</h3>
+
 			<ul>
 				<li><a href="#">Price - Low to High</a></li>
 				<li><a href="#">Price - High to Low</a></li>
@@ -31,13 +33,14 @@
 		<!-- The list of products is available using the `products` variable -->
 		<div id="grid">
 			<c:forEach var="product" items="${products}">
-			
-				<c:set var="product" value="${product}" scope="request"/>
-				
-				<c:url var="detailURL" value="/productDetail">
-					<c:param name="id" value="${product.id}"/>
+
+				<c:url var="detailURL" value="products/detail">
+					<c:param name="id" value="${product.id}" />
 				</c:url>
-				
+
+				<fmt:formatNumber var="formattedCost" type="currency"
+					value="${product.price}" />
+
 				<c:choose>
 					<c:when test="${product.topSeller == true}">
 
@@ -65,7 +68,7 @@
 									</c:forEach>
 								</div>
 
-								<p class="price">$${product.price}</p>
+								<p class="price">${formattedCost}</p>
 							</div>
 						</div>
 					</c:when>
@@ -95,15 +98,15 @@
 								</div>
 								<span class="product-alert">Only
 									${product.remainingStock} left!</span>
-								<p class="price">$${product.price}</p>
+								<p class="price">${formattedCost}</p>
 							</div>
 						</div>
 					</c:when>
 
 					<c:when test="${product.remainingStock == 0}">
 						<div class="tile sold-out">
-							<span class="banner">Sold Out</span> 
-							<a class="product-image" href="${detailURL}"> <img
+							<span class="banner">Sold Out</span> <a class="product-image"
+								href="${detailURL}"> <img
 								src="<c:url value="/images/product-images/${product.imageName}" />" />
 							</a>
 							<div class="details">
@@ -124,7 +127,7 @@
 								</div>
 								<span class="product-alert">Only
 									${product.remainingStock} left!</span>
-								<p class="price">$${product.price}</p>
+								<p class="price">${formattedCost}</p>
 							</div>
 						</div>
 					</c:when>
@@ -153,7 +156,7 @@
 									</c:forEach>
 								</div>
 
-								<p class="price">$${product.price}</p>
+								<p class="price">${formattedCost}</p>
 							</div>
 						</div>
 					</c:otherwise>
