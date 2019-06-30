@@ -21,11 +21,23 @@
 
 		<div id="sorting-options">
 			<h3>Sort By</h3>
+			
+			<c:url var="priceLowToHighURL" value="products">
+				<c:param name="sortOrder" value="PriceLowToHigh"/>
+			</c:url>
+			
+			<c:url var="priceHighToLowURL" value="products">
+				<c:param name="sortOrder" value="PriceHighToLow"/>
+			</c:url>
+			
+			<c:url var="ratingHighToLowURL" value="products">
+				<c:param name="sortOrder" value="RatingHighToLow"/>
+			</c:url>
 
 			<ul>
-				<li><a href="#">Price - Low to High</a></li>
-				<li><a href="#">Price - High to Low</a></li>
-				<li><a href="#">Rating - High to Low</a></li>
+				<li><a href="${priceLowToHighURL}">Price - Low to High</a></li>
+				<li><a href="${priceHighToLowURL}">Price - High to Low</a></li>
+				<li><a href="${ratingHighToLowURL}">Rating - High to Low</a></li>
 			</ul>
 		</div>
 
@@ -42,66 +54,7 @@
 					value="${product.price}" />
 
 				<c:choose>
-					<c:when test="${product.topSeller == true}">
-
-						<div class="tile ">
-							<span class="banner top-seller">Top Seller!</span>
-							<!-- Link to the Detail page using the product id (e.g. products/detail?id=1) -->
-							<a class="product-image" href="${detailURL}"> <img
-								src="<c:url value="/images/product-images/${product.imageName}" />" />
-							</a>
-							<div class="details">
-								<p class="name">${product.name}</p>
-
-								<!-- .filled will make the star solid -->
-								<div class="rating">
-									<c:forEach begin="1" end="5" var="num">
-										<c:choose>
-											<c:when test="${product.averageRating >= num}">
-												<span class="filled">&#9734;</span>
-											</c:when>
-
-											<c:otherwise>
-												<span>&#9734;</span>
-											</c:otherwise>
-										</c:choose>
-									</c:forEach>
-								</div>
-
-								<p class="price">${formattedCost}</p>
-							</div>
-						</div>
-					</c:when>
-
-					<c:when
-						test="${product.remainingStock > 0 && product.remainingStock <= 5}">
-						<div class="tile ">
-
-							<a class="product-image" href="${detailURL}"> <img
-								src="<c:url value="/images/product-images/${product.imageName}" />" />
-							</a>
-							<div class="details">
-								<p class="name">${product.name}</p>
-
-								<div class="rating">
-									<c:forEach begin="1" end="5" var="num">
-										<c:choose>
-											<c:when test="${product.averageRating >= num}">
-												<span class="filled">&#9734;</span>
-											</c:when>
-
-											<c:otherwise>
-												<span>&#9734;</span>
-											</c:otherwise>
-										</c:choose>
-									</c:forEach>
-								</div>
-								<span class="product-alert">Only
-									${product.remainingStock} left!</span>
-								<p class="price">${formattedCost}</p>
-							</div>
-						</div>
-					</c:when>
+					
 
 					<c:when test="${product.remainingStock == 0}">
 						<div class="tile sold-out">
@@ -125,8 +78,6 @@
 										</c:choose>
 									</c:forEach>
 								</div>
-								<span class="product-alert">Only
-									${product.remainingStock} left!</span>
 								<p class="price">${formattedCost}</p>
 							</div>
 						</div>
@@ -134,6 +85,10 @@
 
 					<c:otherwise>
 						<div class="tile ">
+							<c:if test="${product.topSeller == true}">
+								<span class="banner top-seller">Top Seller!</span>
+							</c:if>
+							
 							<!-- Link to the Detail page using the product id (e.g. products/detail?id=1) -->
 							<a class="product-image" href="${detailURL}"> <img
 								src="<c:url value="/images/product-images/${product.imageName}" />" />
@@ -155,7 +110,11 @@
 										</c:choose>
 									</c:forEach>
 								</div>
-
+								
+								<c:if test="${product.remainingStock > 0 && product.remainingStock <= 5}">
+									<span class="product-alert">Only
+									${product.remainingStock} left!</span>
+								</c:if>
 								<p class="price">${formattedCost}</p>
 							</div>
 						</div>

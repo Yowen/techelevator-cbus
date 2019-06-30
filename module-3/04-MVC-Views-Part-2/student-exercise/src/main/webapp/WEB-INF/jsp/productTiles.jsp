@@ -62,7 +62,17 @@
 				</c:when>
 
 				<c:otherwise>
-					<div class="tile ">
+					<c:choose>
+						<c:when test="${product.topSeller == true}">
+							<c:set var="classExtension" value="top-seller"/>
+						</c:when>
+						
+						<c:otherwise>
+							<c:set var="classExtension" value=""/>
+						</c:otherwise>
+					
+					</c:choose>
+					<div class="tile ${classExtension}">
 
 						<!-- Link to the Detail page using the product id (e.g. products/detail?id=1) -->
 						<a class="product-image" href="${detailURL}"> <img
