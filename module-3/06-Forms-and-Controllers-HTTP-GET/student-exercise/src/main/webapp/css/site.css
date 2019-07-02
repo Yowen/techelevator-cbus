@@ -5,6 +5,7 @@
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
+	padding-top: 10px;
     padding-left: 15px;
     padding-right: 15px;
 }
@@ -17,4 +18,30 @@ textarea {
 }
 
 
+table {
+	border-spacing: 10px 0;
+	width: 100%;
+	border-collapse: collapse;
+}
 
+tr {
+	border: solid;
+	border-width: 1px 0;
+	border-color: #F0F0F0;
+	padding-top: 10px;
+	padding-bottom: 5px;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+hr {
+	margin-top: 0px;
+	margin-bottom: 5px;
+}
+
+.customerForm {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}

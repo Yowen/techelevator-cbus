@@ -7,6 +7,7 @@
 	</head>
 	<body>
 		<c:url value="/greeting" var="formAction" />
+		
 		<form method="GET" action="${formAction}">
 			<label for="name">Your Name: </label>
 			<input type="text" id="name" name="name" />

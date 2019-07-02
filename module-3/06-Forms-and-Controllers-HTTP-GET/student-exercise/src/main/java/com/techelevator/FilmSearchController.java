@@ -17,8 +17,9 @@ public class FilmSearchController {
     @Autowired
     FilmDao filmDao;
 
+    @RequestMapping("/filmSearch")
     public String showFilmSearchForm() {
-        return null;
+        return "filmList";
     }
 
     public String searchFilms() {
