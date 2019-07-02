@@ -7,18 +7,19 @@
 <c:url var="formAction" value="/customer/search" />
 
 <div class="customerForm">
-<form method="GET" action="${formAction}">
-	<input type="text" name="name" placeholder="Search" />
-	
-	<!-- Method to disable submit button until proper sort select has been made was proposed by Varun Sharma on stackoverflow -->
-	<select name="sortBy" id="selectBox" onchange="this.form.buttonSubmit.disabled=this.options[this.selectedIndex].value=='your-first-value'">
-		<option selected disabled>Sort by</option>
-		<option value="last_name">Last Name</option>
-		<option value="email">Email</option>
-		<option value="activebool">Active</option>
-	</select> 
-	<input id="buttonSubmit" type="submit" value="Submit" disabled="disabled">
-</form>
+	<form method="GET" action="${formAction}">
+		<input type="text" name="name" placeholder="Search" />
+
+		<!-- Method to disable submit button until proper sort select has been made was proposed by Varun Sharma on stackoverflow -->
+		<select name="sortBy" id="selectBox"
+			onchange="this.form.buttonSubmit.disabled=this.options[this.selectedIndex].value=='your-first-value'">
+			<option selected disabled>Sort by</option>
+			<option value="last_name">Last Name</option>
+			<option value="email">Email</option>
+			<option value="activebool">Active</option>
+		</select> <input id="buttonSubmit" type="submit" value="Submit"
+			disabled="disabled">
+	</form>
 </div>
 
 <table>

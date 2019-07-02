@@ -32,8 +32,19 @@ tr {
 	padding-bottom: 5px;
 }
 
+.align-center {
+	text-align: center;
+}
+
+
 .bold {
 	font-weight: bold;
+}
+
+h4 {
+	font-size: 15px;
+	margin-left: 5px;
+	margin-right: 5px;
 }
 
 hr {
@@ -41,7 +52,7 @@ hr {
 	margin-bottom: 5px;
 }
 
-.customerForm {
+.customerForm, .filmForm {
 	margin-top: 10px;
 	margin-bottom: 10px;
 }
