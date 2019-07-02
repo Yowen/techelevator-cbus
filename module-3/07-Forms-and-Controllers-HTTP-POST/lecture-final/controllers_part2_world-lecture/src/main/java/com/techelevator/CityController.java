@@ -17,7 +17,8 @@ public class CityController {
 
 	@Autowired
 	private CityDAO cityDao;
-
+	
+	
 	@RequestMapping(path="/", method=RequestMethod.GET)
 	public String showAddCity(HttpServletRequest request) {
 		request.setAttribute("cities", cityDao.findCityByCountryCode("USA"));		
@@ -93,7 +94,7 @@ public class CityController {
 	@RequestMapping(path="/addCityWithRequestParams", method=RequestMethod.POST)
 	public String addNewCityByPost(HttpServletRequest request, @RequestParam String name, 
 			@RequestParam(name="district") String state, @RequestParam int population, @RequestParam(required=false) String notRequired) {
-			
+			 
 		City newCity = new City();
 		newCity.setCountryCode("USA");
 		newCity.setName(name);
@@ -165,12 +166,12 @@ public class CityController {
 		 * Instead of returning a view name, we can return redirect:<controller request mapping> to redirect to
 		 * a GET and keep the form from submitting again on a refresh
 		 */
-		//return "redirect:/"; 
+		return "redirect:/"; 
 		
 		/*
 		 * Or we could choose to redirect to a Thank You or other status page if we don't want to show results
 		 */
-		return "redirect:/thankyou"; 
+//		return "redirect:/thankyou"; 
 	}
 	
 	@RequestMapping(path="/thankyou", method=RequestMethod.GET)
