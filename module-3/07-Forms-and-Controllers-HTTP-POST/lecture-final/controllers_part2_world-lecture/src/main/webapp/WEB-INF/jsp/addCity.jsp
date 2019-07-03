@@ -22,13 +22,16 @@
 <form action="${addCityWithPostAndRedirectUrl}" method="POST">
 	<label for="name">Name:</label>
     <input type="text" name="name" /><br />
+    
 	<label for="district">District:</label>
 	<input type="text" name="district" /><br />
+	
 	<label for="population">Population:</label>
 	<input type="text" name="population" /><br />
+	
 	<input type="submit" value="Search" />
-
 </form>
+
 <table class="table">
 <tr>
 <th>Name</th>
