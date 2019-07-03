@@ -23,6 +23,7 @@ import com.techelevator.dao.model.User;
  */
 
 @Controller
+@SessionAttributes({"user", "bgClass"})
 public class CityController {
 
 	@Autowired
@@ -105,7 +106,8 @@ public class CityController {
 	@RequestMapping(path="/changeBackground", method=RequestMethod.POST)
 	public String changeBackgroundColor(@RequestParam(name="bgColor") String backgroundColor, ModelMap map) {
 		map.addAttribute("bgClass", backgroundColor);
-		return "selectBackgroundColor";   
+		//return "selectBackgroundColor";   
+		return "redirect:/selectBackgroundColor";
 	}
 	
 	
