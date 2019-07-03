@@ -6,7 +6,7 @@
 
 <c:url var="stepThreePostURL" value="/addCity/stepThree"/>
 
-<form action=""${stepThreePostURL} method="POST">
+<form action="${stepThreePostURL}" method="POST">
 	<input type="number" name="population" />
 	<input type="submit" value="Next >>" />
 </form>
