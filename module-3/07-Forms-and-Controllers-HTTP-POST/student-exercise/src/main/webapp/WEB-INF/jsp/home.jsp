@@ -24,6 +24,9 @@
 					<c:out value="(${post.username})" />
 				</div>
 				<div>
+					<c:out value="${post.dateSubmitted}" />
+				</div>
+				<div>
 					<c:forEach begin="1" end="${post.rating}" var="num">
 						<c:url var="starURL" value="etc/star.png" />
 						<img src="${starURL}" alt="gold star" />

@@ -24,7 +24,7 @@ public class FavoriteThingsSurveyController {
 		
 		map.addAttribute("color", color);
 		
-		return "redirect:/FavoriteThings/Page2";
+		return "/FavoriteThings/Page2";
 	}
 	
 	@RequestMapping(path="/FavoriteThings/Page2", method=RequestMethod.POST)
@@ -35,7 +35,7 @@ public class FavoriteThingsSurveyController {
 		
 		map.addAttribute("food", food);
 		
-		return "redirect:/FavoriteThings/Page3";
+		return "/FavoriteThings/Page3";
 	}
 	
 	@RequestMapping(path="/FavoriteThings/Page3", method=RequestMethod.POST)
