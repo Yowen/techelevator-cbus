@@ -20,11 +20,12 @@
 
 	<form action="${formAction}" method="POST">
 		<div>
-			<label for="username">Username</label> <input type="text"
-				name="username">
+			<label for="username">Username</label> 
+			<input type="text" name="username" required>
 		</div>
 		<div>
-			<label for="rating">Rating</label> <select id="rating" name="rating">
+			<label for="rating">Rating</label> 
+			<select id="rating" name="rating">
 				<option value="1">1 Star</option>
 				<option value="2">2 Stars</option>
 				<option value="3">3 Stars</option>
@@ -33,12 +34,13 @@
 			</select>
 		</div>
 		<div>
-			<label for="review_title">Review Title</label> <input type="text"
-				name="title" />
+			<label for="review_title">Review Title</label> 
+			<input type="text" name="title" required/>
 		</div>
 		<div>
-			<label for="review_text">Review Text</label> <input type="text"
-				name="text" /> <input type="submit" value="Submit" />
+			<label for="review_text">Review Text</label> 
+			<input type="text" name="text" required/> 
+			<input type="submit" value="Submit" />
 		</div>
 	</form>
 
@@ -47,7 +49,7 @@
 			<div class="post">
 				<div>
 					<strong><c:out value="${post.title}" /></strong>
-					<c:out value="${post.username}" />
+					<c:out value="(${post.username})" />
 				</div>
 				<div>
 					<c:forEach begin="1" end="${post.rating}" var="num">

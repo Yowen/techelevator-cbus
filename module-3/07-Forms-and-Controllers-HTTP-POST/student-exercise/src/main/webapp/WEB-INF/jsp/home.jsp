@@ -21,7 +21,7 @@
 			<div class="post">
 				<div>
 					<strong><c:out value="${post.title}" /></strong>
-					<c:out value="${post.username}" />
+					<c:out value="(${post.username})" />
 				</div>
 				<div>
 					<c:forEach begin="1" end="${post.rating}" var="num">
