@@ -51,25 +51,49 @@ public class CityController {
 			return "redirect:/login";
 		}
 
+		// Add empty Java Bean to request, ONLY if the key doesn't exist
+		if (!map.containsAttribute("newCity")) {
+			City city = new City();
+			city.setDistrict("Ohio");
+			map.addAttribute("newCity", city);
+		}
+		
 		return "addCity";  
 	}
 	
 	/*
 	 * Add RedirectAttributes as an argument to the controller to 
 	 * access Flash Scope
+	 * 
+	 * Added @Valid and @ModelAttribute
+	 * Added BindingResult
 	 */
 	@RequestMapping(path="/addCity", method=RequestMethod.POST)
-	public String addNewCity(City newCity) {
+	public String addNewCity(@Valid @ModelAttribute("newCity") City newCity, BindingResult result, ModelMap map, RedirectAttributes attr) {
 	
+		// Use BindingResult to determine if there are errors and process accordingly
+		if (result.hasErrors()) {
+			return "addCity";
+		}
+		
 		newCity.setCountryCode("USA");	
 		cityDao.save(newCity);
 
+		attr.addFlashAttribute("city", newCity);
+		//map.addAttribute("city", newCity);
+		
 		return "redirect:/addCityResult";  
 	}
 
 	
 	@RequestMapping(path="/addCityResult", method=RequestMethod.GET)
 	public String showAddCityResult(ModelMap map) {	
+		
+		if (map.containsAttribute("city")) {
+			City city = (City) map.get("city");
+			map.addAttribute("comment", "CityId=" + city.getId());
+		}
+		
 		
 		
 		return "cityConfirm";  
