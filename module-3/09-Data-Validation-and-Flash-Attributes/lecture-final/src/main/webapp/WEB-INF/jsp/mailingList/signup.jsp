@@ -11,11 +11,11 @@
 
 <form:form action="${mailingListSignUpUrl}" method="POST" modelAttribute="signup">
 		
-		<%-- 
+
 	    <div>
 			<form:errors path="*" cssClass="error"/>
 		</div>
-		--%>
+
 		
         <div>
         		<label for="name">Name</label>
