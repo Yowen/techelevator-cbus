@@ -2,10 +2,14 @@ package com.techelevator.validation.model;
 
 import java.util.Date;
 
+import javax.validation.constraints.AssertTrue;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.Range;
 
 public class Registration {
 
@@ -21,19 +25,42 @@ public class Registration {
 	
 	@NotBlank(message="Email address does not match")
 	@Email(message="Please enter an email")
-	private String confirmEmail;
+	private String verifyEmail;
 	
-	@NotBlank(message="Password minimum is 8 characters")
+	@Length(min=8, message="Password minimum is 8 characters")
 	private String password;
 	
 	@NotBlank(message="Passwords do not match")
-	private String confirmPassword;
+	private String verifyPassword;
 	
 	@NotBlank(message="Please enter a birthday")
-	private Date birthday;
+	private String birthday;
 	
-	@NotBlank(message="# of Tickets must be between 1 and 10")
+	@NotNull(message="# of Tickets must be between 1 and 10")
+	@Range(min=1, max=10, message="# of Tickets must be between 1 and 10")
 	private int tickets;
+	
+	private boolean passwordMatching;
+	@AssertTrue(message="Passwords must match")
+	public boolean isPasswordMatching() {
+		if (password != null) {
+			return password.equals(verifyPassword);
+		}
+		else {
+			return false;
+		}
+	}
+	
+	private boolean emailMatching;
+	@AssertTrue(message="Passwords must match")
+	public boolean isEmailMatching() {
+		if (email != null) {
+			return email.equals(verifyEmail);
+		}
+		else {
+			return false;
+		}
+	}
 	
 	public String getFirstName() {
 		return firstName;
@@ -53,11 +80,11 @@ public class Registration {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getConfirmEmail() {
-		return confirmEmail;
+	public String getVerifyEmail() {
+		return verifyEmail;
 	}
-	public void setConfirmEmail(String confirmEmail) {
-		this.confirmEmail = confirmEmail;
+	public void setVerifyEmail(String verifyEmail) {
+		this.verifyEmail = verifyEmail;
 	}
 	public String getPassword() {
 		return password;
@@ -65,16 +92,16 @@ public class Registration {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getConfirmPassword() {
-		return confirmPassword;
+	public String getVerifyPassword() {
+		return verifyPassword;
 	}
-	public void setConfirmPassword(String confirmPassword) {
-		this.confirmPassword = confirmPassword;
+	public void setVerifyPassword(String verifyPassword) {
+		this.verifyPassword = verifyPassword;
 	}
-	public Date getBirthday() {
+	public String getBirthday() {
 		return birthday;
 	}
-	public void setBirthday(Date birthday) {
+	public void setBirthday(String birthday) {
 		this.birthday = birthday;
 	}
 	public int getTickets() {

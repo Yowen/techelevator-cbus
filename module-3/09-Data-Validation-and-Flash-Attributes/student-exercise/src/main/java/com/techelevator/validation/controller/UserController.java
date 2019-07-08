@@ -8,7 +8,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.techelevator.validation.model.Login;
 import com.techelevator.validation.model.Registration;
@@ -28,7 +27,7 @@ public class UserController {
 	@RequestMapping(path="/registration", method = RequestMethod.GET)
 	public String getRegistrationScreen(ModelMap map) {
 		if (!map.containsAttribute("registrationURL")) {
-			map.addAttribute("newRegistration", new Registration());
+			map.addAttribute("newRegister", new Registration());
 		}
 		return "registration";
 	}
@@ -37,6 +36,14 @@ public class UserController {
 	// Validate the model and redirect to confirmation (if successful) or return
 	// the
 	// registration view (if validation fails)
+	@RequestMapping(path="/registration", method = RequestMethod.POST)
+	public String validateRegistration(@Valid @ModelAttribute("newRegister") Registration newRegister, BindingResult result, ModelMap map) {
+		if (result.hasErrors()) {
+			return "/registration";
+		}
+		
+		return "redirect:/confirmation";
+	}
 
 	// GET: /login
 	// Return the empty login view
@@ -52,7 +59,7 @@ public class UserController {
 	// Validate the model and redirect to login (if successful) or return the
 	// login view (if validation fails)
 	@RequestMapping(path="/login", method = RequestMethod.POST)
-	public String validateLoginInfo(@Valid @ModelAttribute("newLogin") Login newLogin, BindingResult result, ModelMap map, RedirectAttributes attr) {
+	public String validateLoginInfo(@Valid @ModelAttribute("newLogin") Login newLogin, BindingResult result, ModelMap map) {
 		if (result.hasErrors()) {
 			return "/login";
 		}
