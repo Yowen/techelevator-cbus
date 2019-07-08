@@ -4,7 +4,6 @@ public class User {
 
 	private String username;
 	private String name;
-
 	
 	public String getUsername() {
 		return username;
@@ -19,7 +18,4 @@ public class User {
 		this.name = name;
 	}
 
-	
-	
-	
 }
