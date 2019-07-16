@@ -29,9 +29,6 @@
 			<form:input path="email" />            
         		<form:errors path="email" cssClass="error"/>
         		<form:errors path="emailMatching" cssClass="error"/>
-
-            
-            
         </div>
         <div>
             <label for="verifyEmail">Verify Email</label>

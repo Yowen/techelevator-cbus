@@ -16,7 +16,7 @@
 
   <session-config>
     <tracking-mode>COOKIE</tracking-mode>
-</session-config>
+	</session-config>
   
   <!-- This maps all application requests to the Spring DispatcherServlet -->
   <servlet-mapping>
