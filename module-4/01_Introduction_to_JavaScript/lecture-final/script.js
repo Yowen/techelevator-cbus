@@ -10,8 +10,42 @@
  */
 function variables() {
   // Declares a variable where the value cannot be changed
+  const daysPerWeek = 7;
+  console.log("Days of Week " + daysPerWeek);
+  console.log(`There are ${daysPerWeek} days in the week`);
+
   // Declares a variable those value can be changed
+  let daysPerMonth = 30;
+  console.log(`There are ${daysPerMonth} days in the month`);
+
   // Declares a variable that will always be an array
+  const weekdays = [
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday'
+  ];
+
+  console.log(weekdays);
+
+  weekdays.push('Saturday');
+
+  console.table(weekdays);
+
+  weekdays[6] = 'Sunday';
+  console.table(weekdays);
+
+  console.log(`The days at index 2 is ${weekdays[2]}`);
+
+  console.log('The last day on the array is ' + weekdays.pop());
+  console.table(weekdays);
+
+  weekdays[10] = 'Sunday';
+  console.table(weekdays);
+
+  console.log("Weekdays length: " + weekdays.length);
+  console.log(weekdays);
 }
 
 /**
@@ -23,6 +57,10 @@ function variables() {
 function printParameters(param1, param2) {
   console.log(`The value of param1 is ${param1}`);
   console.log(`The value of param2 is ${param2}`);
+}
+
+function sum2Numbers(x, y) {
+  return x + y;
 }
 
 /**
@@ -70,14 +108,28 @@ function objects() {
       "Milton Waddams",
       "Samir Nagheenanajar",
       "Michael Bolton"
-    ]
+    ],
+    toString: function() {
+      return `${this.lastName}, ${this.firstName}  ${this.age}`;
+    }
   };
 
   // Log the object
+console.table(person);
+console.log(person);
 
   // Log the first and last name
+console.log(`First name is ${person.firstName} and last name is ${person['lastName']}`)
 
   // Log each employee
+console.table(person.employees);
+
+  for (let i = 0; i < person.employees.length; i++) {
+    console.log(person.employees[i]);
+  }
+
+console.log("To String: " + person.toString);
+console.log("To String again: " + person.toString() );
 }
 
 /*
@@ -98,10 +150,7 @@ function Add(num1, num2, num3) {
   return num1 + num2 + num3;
 }
 
-<<<<<<< HEAD
-=======
 
->>>>>>> origin/remove-day-one-complex-functions
 /*
 ########################
 Math Library
@@ -133,6 +182,14 @@ function stringFunctions(value) {
   console.log(`.startsWith('Hello') - ${value.startsWith("Hello")}`);
   console.log(`.indexOf('Hello') - ${value.indexOf("Hello")}`);
 
+  // substr (starting Index , number of characters)
+  console.log(`.substr(1, 3) - ${value.substr(1, 3)}`);
+  console.log(`.substr(1, 100) - ${value.substr(1, 100)}`);
+
+  // substring (starting index (inclusive) , ending index (exclusive) )
+  console.log(`.substring(1, 3) -  ${value.substring(1, 3)}`);
+  console.log(`.substring(1, 100) -  ${value.substring(1, 100)}`);
+
   /*
     Other Methods
         - split(string)
@@ -142,4 +199,14 @@ function stringFunctions(value) {
         - trim()
         - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
     */
+}
+
+function forcedNumericTypes(num) {
+  console.log(`1 + parseInt(num) - ${1 + parseInt(num)}`);
+  console.log(`1 + parseFloat(num) - ${1 + parseFloat(num)}`);
+
+  console.log(`isNaN(1) - ${isNaN(1)}`);
+  console.log(`isNaN('A') - ${isNaN('A')}`);
+  console.log(`isNaN('2') - ${isNaN('2')}`);
+  console.log(`isNaN('undefined') - ${isNaN(undefined)}`);
 }

@@ -57,6 +57,9 @@ function isAdmitted(gpa, satScore, recommendation) {
  */
 let unfilteredArray = [1, 2, 3, 4, 5, 6];
 
+function useParameterToFilterArray(filterFunction) {
+  return unfilteredArray.filter(filterFunction);
+}
 /**
  * Write a function called makeNumber to take two strings
  * of digits, concatenate them together, and then return
@@ -69,6 +72,10 @@ let unfilteredArray = [1, 2, 3, 4, 5, 6];
  * @param {string} [second=''] the second string of digits to concatenate
  * @returns {number} the resultant number
  */
+function makeNumber(first, second) {
+  var str = "" + first + second;
+  return parseInt(str);
+}
 
 /**
  * Write a function called addAll that takes an unknown number of parameters
@@ -77,12 +84,25 @@ let unfilteredArray = [1, 2, 3, 4, 5, 6];
  * @param {...number} num a series of numbers to add together
  * @returns {number} the sum of all the parameters (or arguments)
  */
+function addAll(...numbers) {
+  var sum = 0;
+
+  for (let i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
+  }
+  return sum;
+}
 
 /*
  * Write and document a function called makeHappy that takes
  * an array and prepends 'Happy ' to the beginning of all the
  * words and returns them as a new array. Use the `map` function.
  */
+function makeHappy(arr) {
+  return arr.map( (str) => {
+    return "Happy " + str;
+  })
+}
 
 /*
  * Write and document a function called getFullAddressesOfProperties
@@ -101,6 +121,11 @@ let unfilteredArray = [1, 2, 3, 4, 5, 6];
  *
  * Use `map` and an anonymous function.
  */
+function getFullAddressesOfProperties(arr) {
+  return arr.map( (item) => {
+    return item.streetNumber + ' ' + item.streetName + ' ' +  item.streetType + ' ' +  item.city + ' ' +  item.state + ' ' +  item.zip;
+  })
+}
 
 /*
  * Create and document a function called findLargest.
@@ -108,6 +133,16 @@ let unfilteredArray = [1, 2, 3, 4, 5, 6];
  * Using `forEach`, find the largest element in an array.
  * It should work for strings and numbers.
  */
+function findLargest(arr) {
+  var large = '';
+  arr.forEach( (num) => {
+    if (num > large) {
+      large = num;
+      return num;
+    }
+  });
+  return large;
+}
 
 /*
  * CHALLENGE
