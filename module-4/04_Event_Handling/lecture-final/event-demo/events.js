@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
      * The focus event occurs when the pointer enters an element
      */
     inputField.addEventListener('focus', (event) => {
-        event.target.classList.remove('green-background');
+        inputField.classList.remove('green-background');
         event.target.classList.add('red-background');
     });
 
@@ -23,9 +23,9 @@ document.addEventListener('DOMContentLoaded', () => {
         addgreeBackground(event.target);
     });
 
-    // inputField.addEventListener('click', (event) => {
-    //     event.stopPropagation();
-    // });
+    inputField.addEventListener('click', (event) => {
+        event.stopPropagation();
+    });
 
     /*
      * The keydown event occurs when the user presses a key
@@ -94,14 +94,14 @@ document.addEventListener('DOMContentLoaded', () => {
      */
     form.addEventListener('submit', (event) => {
         h2.innerText = "Submitting the form!!!";
-        //event.preventDefault();
+        event.preventDefault();
     });
 
     /*
     * Methods can be called that add event listeners, as long as they are called
     * after the DOM load Event completes
     */
-    //handleWASD();
+    handleWASD();
 
 });
   
