@@ -33,7 +33,7 @@ describe('Shopping List Events Exercise Tests', () => {
     cy.get('li').each(($item) => {
       cy.wrap($item).should('have.class', 'completed');
     });
-    cy.get('#toggleAll').should('contain', 'mark all incomplete');
+    cy.get('#toggleAll').should('contain', 'Mark All Incomplete');
   });
 
   it('clicking on the mark all incomplete button should set all items to incomplete', () => {
@@ -41,6 +41,6 @@ describe('Shopping List Events Exercise Tests', () => {
     cy.get('li').each(($item) => {
       cy.wrap($item).should('not.have.class', 'completed');
     });
-    cy.get('#toggleAll').should('contain', 'mark all complete');
+    cy.get('#toggleAll').should('contain', 'Mark All Complete');
   });
 });

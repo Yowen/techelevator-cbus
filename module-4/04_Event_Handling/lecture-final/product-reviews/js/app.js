@@ -59,13 +59,45 @@ function displayReview(review) {
 }
 
 // LECTURE STARTS HERE ---------------------------------------------------------------
+document.addEventListener('DOMContentLoaded', () => {
+  // set the product reviews page title
+  setPageTitle();
+  // set the product reviews page description
+  setPageDescription();
+  // display all of the product reviews on our page
+  displayReviews();
 
-// set the product reviews page title
-setPageTitle();
-// set the product reviews page description
-setPageDescription();
-// display all of the product reviews on our page
-displayReviews();
+  const desc = document.querySelector('.description');
+  desc.addEventListener('click', (event) => {
+    toggleDescriptionEdit(event.target);
+  });
+
+  const inputDesc = document.getElementById('inputDesc');
+  inputDesc.addEventListener('keyup', (event) => {
+    if ( event.key === 'Enter' ) {
+      exitDescriptionEdit(event.target, true);
+    }
+    if ( event.key === 'Escape' ) {
+      exitDescriptionEdit(event.target, false);
+    }
+  });
+
+  inputDesc.addEventListener('mouseleave', (event) => {
+    exitDescriptionEdit(event.target, false);
+  });
+
+  document.getElementById('btnToggleForm').addEventListener('click', () => {
+    showHideForm();
+  });
+
+  document.getElementById('btnSaveReview').addEventListener('click', (event) => {
+    event.preventDefault();
+    saveReview();
+  });
+
+});
+
+
 
 /**
  * Take an event on the description and swap out the description for a text box.
@@ -130,4 +162,25 @@ function resetFormValues() {
 /**
  * I will save the review that was added using the add review from
  */
-function saveReview() {}
+function saveReview() {
+  // Get References to all Form fields
+  const name = document.getElementById('name');
+  const title = document.getElementById('title');
+  const review = document.getElementById('review');
+  const rating = document.getElementById('rating');
+
+  // Create new Review object and push it to Reviews
+  const newReview =   {
+      reviewer: name.value,
+      title: title.value,
+      review: review.value,
+      rating: rating.value
+    };
+    reviews.push(newReview);
+
+  // call displayReview(newReview) to add review to screen
+  displayReview(newReview);
+
+  // showHideForm
+  showHideForm();
+}

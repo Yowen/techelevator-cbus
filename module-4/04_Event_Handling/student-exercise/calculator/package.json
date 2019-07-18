@@ -1,5 +1,5 @@
 {
-  "name": "tests",
+  "name": "calculator",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,13 +7,15 @@
     "start": "./node_modules/.bin/http-server",
     "cypress:run": "./node_modules/.bin/cypress run -c video=false",
     "cypress:open": "cypress open -c video=false",
-    "test": "npm run start & npm run cypress:open",
-    "test-headless": "npm run start & npm run cypress:run"
+    "test": "npm-run-all -p start cypress:open ",
+    "test-headless": "npm-run-all -p start cypress:run"
   },
-  "author": "",
+  "keywords": [],
+  "author": "Tech Elevator",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^3.1.5",
-    "http-server": "^0.11.1"
+    "cypress": "^3.3.1",
+    "http-server": "^0.11.1",
+    "npm-run-all": "^4.1.5"
   }
 }
