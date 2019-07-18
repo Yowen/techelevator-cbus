@@ -5,7 +5,7 @@ describe('dom-exercise', () => {
     const html = `
       <div class="shopping-list">
           <h1 id="title"></h1>
-          <ul>
+          <ul id="groceries">
               
           </ul>
       </div>
