@@ -35,7 +35,7 @@ li {
 li:last-child{
     border:0px;
 }
-li.todo-completed {
+li.completed {
     text-decoration: line-through;
     color: darkgray;
 }
@@ -51,4 +51,21 @@ input[type="checkbox"] {
     font-size:40px;
     vertical-align: middle;
     margin-top:0px;
+}
+
+a.btn {
+    width:250px;
+    margin: 5px auto;
+    display: block;
+    box-sizing: border-box;
+    font-size: 18px;
+    padding:10px;
+    border-radius: 4px;
+    background-color: rgb(131, 210, 255);
+    font-weight:300;
+    color:#FFFFFF;
+    background-color:#b8b8b8;
+    text-align:center;
+    text-transform: uppercase;
+    text-decoration: none;
 }
