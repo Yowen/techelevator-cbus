@@ -37,5 +37,16 @@ function displayGroceries() {
   });
 }
 
-setPageTitle();
-displayGroceries();
+document.addEventListener('DOMContentLoaded', () => {
+  setPageTitle();
+  displayGroceries();
+
+  const ul = document.querySelector('.shopping-list ul');
+  ul.addEventListener('click', (event) => {
+    toggleComplete(event.target);
+  })
+});
+
+function toggleComplete() {
+
+}
