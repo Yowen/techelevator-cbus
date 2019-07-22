@@ -1,17 +1,29 @@
 <template>
   <div id="app">
-    <header>Header</header>
-    <aside class="sidebar-left">Left Sidebar</aside>
-    <article>Article</article>
-    <aside class="sidebar-right">Right Sidebar</aside>
-    <footer>Footer</footer>
+    <the-header></the-header>
+    <left-sidebar></left-sidebar>
+    <main-content></main-content>
+    <right-sidebar></right-sidebar>
+    <the-footer></the-footer>
   </div>
 </template>
 
 <script>
+import LeftSidebar from "@/components/LeftSidebar.vue";
+import MainContent from "@/components/MainContent.vue";
+import RightSidebar from "@/components/RightSidebar.vue";
+import TheFooter from "@/components/TheFooter.vue";
+import TheHeader from "@/components/TheHeader.vue";
+
 export default {
   name: "app",
-  components: {}
+  components: {
+    LeftSidebar,
+    MainContent,
+    RightSidebar,
+    TheFooter,
+    TheHeader
+  }
 };
 </script>
 
