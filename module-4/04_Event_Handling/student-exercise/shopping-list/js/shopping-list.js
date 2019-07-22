@@ -41,12 +41,35 @@ document.addEventListener('DOMContentLoaded', () => {
   setPageTitle();
   displayGroceries();
 
-  const ul = document.querySelector('.shopping-list ul');
-  ul.addEventListener('click', (event) => {
-    toggleComplete(event.target);
+  const tasks = document.querySelectorAll('li');
+
+  tasks.forEach( (task) => {
+
+    task.addEventListener('click', () => {
+      if ( !TextTrackList.classList.contains('completed') ) {
+        task.classList.add('completed')
+        task.querySelector('i').classList.add('completed')
+      }
+    })
+  
+    task.addEventListener('dblclick', () => {
+      if ( TextTrackList.classList.contains('completed') ) {
+        task.classList.remove('completed')
+        task.querySelector('i').classList.remove('completed')
+      }
+    })
+
   })
+
+  const toggleAll = document.getElementById('toggleAll')
+  toggleAll.addEventListener('click', () => {
+    tasks.forEach( (task) => {
+
+      tasks.classList.add('completed')
+      task.querySelector('i').classList.add('completed');
+
+    })
+    
+  })
+  
 });
-
-function toggleComplete() {
-
-}
