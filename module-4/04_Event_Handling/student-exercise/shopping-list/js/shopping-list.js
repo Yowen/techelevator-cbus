@@ -46,14 +46,14 @@ document.addEventListener('DOMContentLoaded', () => {
   tasks.forEach( (task) => {
 
     task.addEventListener('click', () => {
-      if ( !TextTrackList.classList.contains('completed') ) {
+      if ( !task.classList.contains('completed') ) {
         task.classList.add('completed')
         task.querySelector('i').classList.add('completed')
       }
     })
   
     task.addEventListener('dblclick', () => {
-      if ( TextTrackList.classList.contains('completed') ) {
+      if ( task.classList.contains('completed') ) {
         task.classList.remove('completed')
         task.querySelector('i').classList.remove('completed')
       }
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
   toggleAll.addEventListener('click', () => {
     tasks.forEach( (task) => {
 
-      tasks.classList.add('completed')
+      task.classList.add('completed')
       task.querySelector('i').classList.add('completed');
 
     })
