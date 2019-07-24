@@ -12,6 +12,7 @@ const groceries = [
   { id: 9, name: 'Salad', completed: false },
   { id: 10, name: 'Tea', completed: false }
 ];
+const toggleAllBtn = document.getElementById('toggleAll')
 
 /**
  * This function will get a reference to the title and set its text to the value
@@ -37,9 +38,14 @@ function displayGroceries() {
   });
 }
 
+function buttonText() {
+  toggleAllBtn.innerText = 'Mark All Complete'
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   setPageTitle();
   displayGroceries();
+  buttonText();
 
   const tasks = document.querySelectorAll('li');
 
@@ -58,18 +64,25 @@ document.addEventListener('DOMContentLoaded', () => {
         task.querySelector('i').classList.remove('completed')
       }
     })
-
   })
 
-  const toggleAll = document.getElementById('toggleAll')
-  toggleAll.addEventListener('click', () => {
-    tasks.forEach( (task) => {
-
-      task.classList.add('completed')
-      task.querySelector('i').classList.add('completed');
-
-    })
+  toggleAllBtn.addEventListener('click', () => {
+    if (allItemsIncomplete) {
+      tasks.forEach( (task) => {
+        task.classList.add('completed')
+        task.querySelector('i').classList.add('completed')
+      })
+       toggleAllBtn.innerText = 'Mark All Incomplete'
+       allItemsIncomplete = false;
+    }
+    else {
+      tasks.forEach( (task) => {
+        task.classList.remove('completed')
+        task.querySelector('i').classList.remove('completed') 
+      })
+      toggleAllBtn.innerText = 'Mark All Complete'
+        allItemsIncomplete = true;
+    }
+  })
+})
     
-  })
-  
-});
