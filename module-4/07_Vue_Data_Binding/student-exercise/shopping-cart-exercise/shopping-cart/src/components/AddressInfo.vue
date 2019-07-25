@@ -229,16 +229,20 @@ export default {
     updateBilling() {
       console.log('I am called when the checkbox "Billing same as shipping" is checked or unchecked.');
       this.billingSameAsShipping = !this.billingSameAsShipping;
+
+      // this.billingSameAsShipping ? this.billing = this.shipping : this.clearBillingAddress();
+
       // if billingSameAsShipping set billing equal to shipping
-      if (billingSameAsShipping) {
+      if (this.billingSameAsShipping) {
         this.billing.address = this.shipping.address;
         this.billing.address2 = this.shipping.address2;
         this.billing.city = this.shipping.city;
         this.billing.state = this.shipping.state;
+        this.billing.zip = this.shipping.zip;
       }
       // else clear all the billing address fields
       else {
-        clearBillingAddress();
+        this.clearBillingAddress();
       }
     },
     clearBillingAddress() {
