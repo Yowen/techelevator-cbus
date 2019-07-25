@@ -230,12 +230,23 @@ export default {
       console.log('I am called when the checkbox "Billing same as shipping" is checked or unchecked.');
       this.billingSameAsShipping = !this.billingSameAsShipping;
       // if billingSameAsShipping set billing equal to shipping
-      
+      if (billingSameAsShipping) {
+        this.billing.address = this.shipping.address;
+        this.billing.address2 = this.shipping.address2;
+        this.billing.city = this.shipping.city;
+        this.billing.state = this.shipping.state;
+      }
       // else clear all the billing address fields
-      
+      else {
+        clearBillingAddress();
+      }
     },
     clearBillingAddress() {
       // clear the billing address fields
+      this.billing.address = "";
+      this.billing.address2 = "";
+      this.billing.city = "";
+      this.billing.state = "";
       
     }
   }
