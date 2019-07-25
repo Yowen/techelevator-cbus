@@ -38,18 +38,18 @@
 
     <a href="#" v-on:click.prevent="showForm = true" v-if="!showForm">Show Form</a>
 
-    <form v-if="showForm">
+    <form v-if="showForm" v-on:submit.prevent="addReview(newReview)">
       <div class="form-element">
         <label for="reviewer">Name:</label>
-        <input id="reviewer" type="text" />
+        <input id="reviewer" type="text" v-model="newReview.reviewer" />
       </div>
       <div class="form-element">
         <label for="title">Title:</label>
-        <input id="title" type="text" />
+        <input id="title" type="text" v-model="newReview.title" />
       </div>
       <div class="form-element">
         <label for="rating">Rating:</label>
-        <select id="rating">
+        <select id="rating" v-model.number="newReview.rating">
           <option value="1">1 Star</option>
           <option value="2">2 Stars</option>
           <option value="3">3 Stars</option>
@@ -59,9 +59,9 @@
       </div>
       <div class="form-element">
         <label for="review">Review</label>
-        <textarea id="review"></textarea>
+        <textarea id="review" v-model="newReview.review"></textarea>
       </div>
-      <button>Submit</button>
+      <button type="submit">Submit</button>
       <button type="cancel" v-on:click="showForm = false">Cancel</button>
     </form>
 
@@ -92,6 +92,12 @@ export default {
       name: "Cigar Parties for Dummies",
       description:
         "Host and plan the perfect cigar party for all of your squirrelly friends.",
+      newReview: {
+        reviewer: "",
+        title: "",
+        review: "",
+        rating: 0
+      },
       reviews: [
         {
           reviewer: "Malcolm Gladwell",
@@ -148,6 +154,15 @@ export default {
     }
   },
   methods: {
+    addReview(review) {
+      this.reviews.push(review);
+      this.newReview = {
+        reviewer: "",
+        title: "",
+        rating: 0,
+        review: ""
+      };
+    },
     numberOfReviews(reviews, starType) {
       return reviews.reduce((currentCount, review) => {
         return currentCount + (review.rating === starType ? 1 : 0);
