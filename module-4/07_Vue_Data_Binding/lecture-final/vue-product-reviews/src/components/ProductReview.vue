@@ -21,17 +21,17 @@
       </div>
 
       <div class="well">
-        <span class="amount">-</span>
+        <span class="amount">{{ numberOfThreeStarReviews }}</span>
         3 Star Review
       </div>
 
       <div class="well">
-        <span class="amount">-</span>
+        <span class="amount">{{ numberOfFourStarReviews }}</span>
         4 Star Review
       </div>
 
       <div class="well">
-        <span class="amount">-</span>
+        <span class="amount">{{ numberOfFiveStarReviews }}</span>
         5 Star Review
       </div>
     </div>
@@ -44,6 +44,7 @@
           v-bind:title="review.rating + ' Star Review'"
           class="ratingStar"
           v-for="n in review.rating"
+          v-bind:key="review.id + ':' + n"
         />
       </div>
       <h3>{{ review.title }}</h3>
@@ -110,6 +111,15 @@ export default {
     },
     numberOfTwoStarReviews(vm) {
       return vm.numberOfReviews(vm.reviews, 2);
+    },
+    numberOfThreeStarReviews(vm) {
+      return vm.numberOfReviews(vm.reviews, 3);
+    },
+    numberOfFourStarReviews(vm) {
+      return vm.numberOfReviews(vm.reviews, 4);
+    },
+    numberOfFiveStarReviews(vm) {
+      return vm.numberOfReviews(vm.reviews, 5);
     }
   },
   methods: {
