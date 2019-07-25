@@ -4,7 +4,7 @@
 
     <p class="description">{{ description }}</p>
 
-    <div class="well-display">
+    <div class="well-display" v-on:click="filterReviewsByRating">
       <div class="well">
         <span class="amount">{{ averageRating }}</span>
         Average Rating
@@ -65,7 +65,7 @@
       <button type="cancel" v-on:click="showForm = false">Cancel</button>
     </form>
 
-    <div class="review" v-for="review in reviews" v-bind:key="review.id">
+    <div class="review" v-for="review in filteredReviews" v-bind:key="review.id">
       <h4>{{ review.reviewer }}</h4>
       <div class="rating">
         <img
@@ -89,6 +89,7 @@ export default {
   data() {
     return {
       showForm: false,
+      ratingFilter: 0,
       name: "Cigar Parties for Dummies",
       description:
         "Host and plan the perfect cigar party for all of your squirrelly friends.",
@@ -137,6 +138,11 @@ export default {
       }, 0);
       return sum / vm.reviews.length;
     },
+    filteredReviews() {
+      return this.reviews.filter(
+        review => this.ratingFilter === 0 || review.rating === this.ratingFilter
+      );
+    },
     numberOfOneStarReviews(vm) {
       return vm.numberOfReviews(vm.reviews, 1);
     },
@@ -162,6 +168,21 @@ export default {
         rating: 0,
         review: ""
       };
+    },
+    filterReviewsByRating(evt) {
+      const well = evt.target.closest(".well");
+      let ratingsToFilter = 0;
+      if (well) {
+        if (!well.innerText.indexOf("Average") >= 0) {
+          console.log("Show all reviews...");
+        } else {
+          const re = /(\d+) Star/;
+          const value = re.exec(well.innerText);
+          console.log(value);
+          ratingsToFilter = Number(value[1]);
+        }
+      }
+      this.ratingFilter = ratingsToFilter;
     },
     numberOfReviews(reviews, starType) {
       return reviews.reduce((currentCount, review) => {
