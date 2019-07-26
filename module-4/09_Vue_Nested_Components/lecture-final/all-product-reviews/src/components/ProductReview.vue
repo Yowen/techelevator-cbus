@@ -46,11 +46,11 @@
     <form v-if="showForm === true" v-on:submit.prevent="addNewReview">
       <div class="form-element">
         <label for="reviewer">Name:</label>
-        <input id="reviewer" type="text" v-model="newReview.reviewer">
+        <input id="reviewer" type="text" v-model="newReview.reviewer" />
       </div>
       <div class="form-element">
         <label for="title">Title:</label>
-        <input id="title" type="text" v-model="newReview.title">
+        <input id="title" type="text" v-model="newReview.title" />
       </div>
       <div class="form-element">
         <label for="rating">Rating:</label>
@@ -79,7 +79,7 @@
           class="ratingStar"
           v-for="(n, i) in review.rating"
           v-bind:key="i"
-        >
+        />
       </div>
       <h3>{{ review.title }}</h3>
 
@@ -93,7 +93,8 @@ export default {
   name: "product-review",
   props: {
     name: String,
-    description: String
+    description: String,
+    filterText: String
   },
   data() {
     return {
@@ -114,9 +115,18 @@ export default {
       return (sum / vm.reviews.length).toFixed(2);
     },
     filteredReviews(vm) {
-      return vm.reviews.filter(review => {
+      const filteredReviews = vm.reviews.filter(review => {
         return vm.filter === 0 ? true : vm.filter === review.rating;
       });
+
+      if (vm.filterText === "") {
+        console.log("filteredReviews", filteredReviews);
+        return filteredReviews;
+      }
+
+      return filteredReviews.filter(review =>
+        review.review.includes(vm.filterText)
+      );
     },
     numberOfOneStarReviews(vm) {
       return vm.numberOfReviews(vm.reviews, 1);
