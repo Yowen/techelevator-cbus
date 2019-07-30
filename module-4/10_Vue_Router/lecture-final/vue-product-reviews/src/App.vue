@@ -1,16 +1,36 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <header>
+      <top-navigation />
+    </header>
+    <router-view class="content" />
   </div>
 </template>
 
+<script>
+import TopNavigation from "@/components/TopNavigation";
+
+export default {
+  components: {
+    TopNavigation
+  }
+};
+</script>
+
+
 <style>
 #app {
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background-color: darkorange;
+}
+
+.content {
   width: 800px;
-  margin: auto;
+  margin: 20px;
+  align-self: center;
 }
 </style>

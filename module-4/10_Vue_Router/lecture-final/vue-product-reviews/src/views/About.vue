@@ -1,5 +1,17 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <h1>About the Author</h1>
+    <author-bio />
   </div>
 </template>
+
+<script>
+import AuthorBio from "@/components/AuthorBio";
+
+export default {
+  components: {
+    AuthorBio
+  }
+};
+</script>
+
