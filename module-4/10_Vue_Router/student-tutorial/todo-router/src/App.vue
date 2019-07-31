@@ -2,14 +2,14 @@
   <div id="app">
     <header>
       <ul class="nav">
-        <router-link to="/" tag="li">Home</router-link>
-        <router-link to="/personal" tag="li">Personal</router-link>
-        <router-link to="/work" tag="li">Work</router-link>
-        <router-link to="/house" tag="li">House</router-link>
+        <router-link :to="{ name: 'home' }" tag="li" exact>Home</router-link>
+        <router-link :to="{ name: 'personal' }" tag="li">Personal</router-link>
+        <router-link :to="{ name: 'work' }" tag="li">Work</router-link>
+        <router-link :to="{ name: 'house' }" tag="li">House</router-link>
       </ul>
     </header>
 
-    <router-view/>
+    <router-view class="content"/>
   </div>
 </template>
 
@@ -44,5 +44,11 @@ header {
 }
 .nav li a:hover {
   color: rgb(44, 44, 44);
+}
+.router-link-active {
+  background-color: rgb(44, 44, 44);
+}
+.content {
+  padding: 20px;
 }
 </style>
