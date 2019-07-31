@@ -1,23 +1,36 @@
 <template>
   <div id="app">
-    <product-review></product-review>
+    <header>
+      <top-navigation />
+    </header>
+    <router-view class="content" />
   </div>
 </template>
 
 <script>
-import ProductReview from '@/components/ProductReview.vue'
+import TopNavigation from "@/components/TopNavigation";
 
 export default {
-  name: 'app',
   components: {
-    ProductReview
+    TopNavigation
   }
-}
+};
 </script>
+
 
 <style>
 #app {
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background-color: darkorange;
+}
+
+.content {
   width: 800px;
-  margin: auto;
+  margin: 20px;
+  align-self: center;
 }
 </style>
