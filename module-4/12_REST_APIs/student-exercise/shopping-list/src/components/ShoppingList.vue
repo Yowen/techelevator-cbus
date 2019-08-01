@@ -19,6 +19,7 @@
 export default {
     data() {
         return {
+            API_URL: "http://5d430b6cbc64f90014a577b6.mockapi.io/groceries",
             groceries: []
         }
     },
@@ -32,9 +33,20 @@ export default {
             if( event.target.type != 'checkbox' ) {
                 const checkbox = event.target.querySelector('input[type="checkbox"]');
                 checkbox.checked = !checkbox.checked;
+                const checkMark = event.target.querySelector('.fa-check-circle').classList.toggle('completed');
+                marked();
             }
+        },
+        marked() {
+          
         }
-    }
+    },
+    created() {
+          fetch(this.API_URL)
+            .then(response => response.json())
+            .then(groceries => (this.groceries = groceries));
+    } 
+
 }
 </script>
 

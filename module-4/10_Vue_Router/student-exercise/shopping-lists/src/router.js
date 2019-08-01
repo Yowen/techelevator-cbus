@@ -5,6 +5,8 @@ import Products from '@/views/Products.vue'
 import WeeklySpecials from '@/views/WeeklySpecials.vue'
 import ShoppingCart from '@/views/ShoppingCart.vue'
 import Checkout from '@/views/Checkout.vue'
+import NotFound from '@/views/NotFound.vue'
+import ProductsList from '@/views/ProductsList.vue'
 
 Vue.use(Router)
 
@@ -21,6 +23,11 @@ export default new Router({
       path: '/products',
       name: 'products',
       component: Products
+    },
+    {
+      path: '/products/:department',
+      name: 'products-list',
+      component: ProductsList
     },
     {
       path: '/on-sale',
