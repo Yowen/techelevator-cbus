@@ -59,9 +59,25 @@ export default {
             this.backToReviews();
           }
         })
-        .error(err => console.error(err));
+        .catch(err => console.error(err));
     },
-    updateReview() {}
+    updateReview() {
+      fetch(this.apiURL + "/reviews/" + this.reviewID, {
+        method: "PUT",
+        headers: {
+          "Content-type": "application/json"
+        },
+        body: JSON.stringify(this.review)
+      })
+        .then(response => {
+          console.log(response);
+
+          if (response.ok) {
+            this.backToReviews();
+          }
+        })
+        .catch(err => console.error(err));
+    }
   },
   computed: {
     isValidForm() {
@@ -77,7 +93,14 @@ export default {
         : "Edit Review - " + this.review.title;
     }
   },
-  created() {}
+  created() {
+    if (this.reviewID) {
+      fetch(this.apiURL + "/reviews/" + this.reviewID)
+        .then(response => response.json())
+        .then(review => (this.review = review))
+        .catch(err => console.error(err));
+    }
+  }
 };
 </script>
 

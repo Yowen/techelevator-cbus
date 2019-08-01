@@ -1,23 +1,31 @@
 <template>
-  <div class="product" >
+  <div class="product">
     <div class="product-image">
-      <img src="../assets/img/teyeti.jpg" alt="Tech Elevator Yeti" class="product-image">
+      <img src="../assets/img/teyeti.jpg" alt="Tech Elevator Yeti" class="product-image" />
     </div>
     <div class="product-info">
       <h1>TECH ELEVATOR YETI</h1>
-      <p class="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+      <p
+        class="description"
+      >Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
     </div>
-    <save-review v-if="showAddProductForm" v-on:showReviews="showReviews" :apiURL="API_URL" :reviewID="reviewID"/>
+    <save-review
+      v-if="showAddProductForm"
+      v-on:showReviews="showReviews"
+      :apiURL="API_URL"
+      :reviewID="reviewID"
+    />
     <product-reviews
       v-if="!showAddProductForm"
       :apiURL="API_URL"
       v-on:addReview="addReview"
-      v-on:editReview="editReview($event)"/>
+      v-on:editReview="editReview($event)"
+    />
   </div>
 </template>
 
 <script>
-import SaveReview from "@/components/SaveReview"
+import SaveReview from "@/components/SaveReview";
 import ProductReviews from "@/components/ProductReviews";
 
 export default {
@@ -27,10 +35,10 @@ export default {
   },
   data() {
     return {
-      API_URL: "https://5d42fecabc64f90014a5763d.mockapi.io/api/",
+      API_URL: "https://5d42fecabc64f90014a5763d.mockapi.io/api",
       showAddProductForm: false,
       reviewID: 0
-    }
+    };
   },
   methods: {
     addReview() {
