@@ -1,14 +1,17 @@
 <template>
   <div class="product-reviews">
     <div class="header">
-      <h2>Reviews <span>({{reviews.length}})</span></h2>
+      <h2>
+        Reviews
+        <span>({{reviews.length}})</span>
+      </h2>
       <a href="#" class="add-review" v-on:click="$emit('addReview')">
         <i class="far fa-address-card"></i> Add Review
       </a>
     </div>
     <div class="review" v-for="review in reviews" :key="review.id">
       <div class="review-left">
-        <img :src="review.avatar" class="avatar"/>
+        <img :src="review.avatar" class="avatar" />
         <div class="review-actions">
           <a href="#" class="edit-review" v-on:click="editReview(parseInt(review.id))">
             <i class="far fa-edit"></i> Edit
@@ -40,21 +43,40 @@ export default {
   },
   methods: {
     editReview(id) {
-      this.$emit('editReview',id)
+      this.$emit("editReview", id);
     },
     deleteReview(id) {
-
+      fetch(this.apiURL + "/reviews/" + id, {
+        method: "DELETE"
+      })
+        .then(response => {
+          if (response.ok) {
+            const index = this.reviews.map(review => review.id).indexOf(id);
+            this.reviews.splice(index, 1);
+          }
+        })
+        .catch(err => console.error(err));
     },
     formatDate(d) {
-      let current_datetime = new Date(d)
-      return (current_datetime.getMonth() + 1) + "/" + current_datetime.getDate() + "/" + current_datetime.getFullYear() + " " + current_datetime.getHours() + ":" + current_datetime.getMinutes();
+      let current_datetime = new Date(d);
+      return (
+        current_datetime.getMonth() +
+        1 +
+        "/" +
+        current_datetime.getDate() +
+        "/" +
+        current_datetime.getFullYear() +
+        " " +
+        current_datetime.getHours() +
+        ":" +
+        current_datetime.getMinutes()
+      );
     }
   },
   created() {
     fetch(this.apiURL + "/reviews")
       .then(response => response.json())
-      .then(reviews => this.reviews = reviews);
-
+      .then(reviews => (this.reviews = reviews));
   }
 };
 </script>
@@ -69,18 +91,18 @@ export default {
   border-bottom: 1px solid #ccc;
 }
 h2 {
-  border:none;
+  border: none;
 }
 h2 span {
-  font-size:14px;
+  font-size: 14px;
 }
 a.add-review {
   display: block;
-  margin-top:7px;
-  margin-left:auto;
+  margin-top: 7px;
+  margin-left: auto;
   text-decoration: none;
-  border:none;
-  color:#4EADEA;
+  border: none;
+  color: #4eadea;
 }
 .review {
   display: flex;
@@ -91,11 +113,11 @@ a.add-review {
   margin-right: 20px;
 }
 .avatar {
-    display: block;
-    width: 100px;
-    border-radius: 50%;
-    box-shadow: 0px 3px 10px rgb(0, 0, 0, 40%);
-    margin: auto auto;
+  display: block;
+  width: 100px;
+  border-radius: 50%;
+  box-shadow: 0px 3px 10px rgb(0, 0, 0, 40%);
+  margin: auto auto;
 }
 .feedback {
   margin-top: 10px;
@@ -107,14 +129,15 @@ a.add-review {
   margin-left: 10px;
   text-align: center;
 }
-.review-actions a, .review-actions a:visited {
+.review-actions a,
+.review-actions a:visited {
   display: block;
-  color:black;
-  margin-top:10px;
+  color: black;
+  margin-top: 10px;
   text-decoration: none;
-  color:#4EADEA;
+  color: #4eadea;
 }
 .review-actions a:hover {
-  color:rgb(0, 116, 189);
+  color: rgb(0, 116, 189);
 }
 </style>
