@@ -19,6 +19,7 @@ export default {
   },
   data() {
     return {
+      search: '',
       work: [
         { id: 1, task: 'Create new presentation', completed: false },
         { id: 2, task: 'Add slides to presentation', completed: false },

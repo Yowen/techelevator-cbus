@@ -31,6 +31,12 @@ export default {
                 checkbox.checked = !checkbox.checked;
             }
         }
+    },
+    computed: {
+        filteredTasks() {
+            const filter = new RegExp(this.search, 'i');
+            return this.todos.filter(todo => todo.task.match(filter));
+        }
     }
 }
 </script>
