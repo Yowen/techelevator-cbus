@@ -8,10 +8,10 @@
       <p class="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
     </div>
     <save-review v-if="showAddProductForm" v-on:showReviews="showReviews" :apiURL="API_URL" :reviewID="reviewID"/>
-    <product-reviews 
-      v-if="!showAddProductForm" 
+    <product-reviews
+      v-if="!showAddProductForm"
       :apiURL="API_URL"
-      v-on:addReview="addReview" 
+      v-on:addReview="addReview"
       v-on:editReview="editReview($event)"/>
   </div>
 </template>
@@ -27,7 +27,7 @@ export default {
   },
   data() {
     return {
-      API_URL: "YOUR_MOCK_API_REVIEWS_ENDPOINT_HERE",
+      API_URL: "https://5d42fecabc64f90014a5763d.mockapi.io/api/",
       showAddProductForm: false,
       reviewID: 0
     }

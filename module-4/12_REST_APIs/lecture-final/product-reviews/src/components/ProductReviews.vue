@@ -11,10 +11,10 @@
         <img :src="review.avatar" class="avatar"/>
         <div class="review-actions">
           <a href="#" class="edit-review" v-on:click="editReview(parseInt(review.id))">
-            <i class="far fa-edit"></i> Edit 
+            <i class="far fa-edit"></i> Edit
           </a>
           <a href="#" class="delete-review" v-on:click="deleteReview(review.id)">
-            <i class="far fa-trash-alt"></i> Delete 
+            <i class="far fa-trash-alt"></i> Delete
           </a>
         </div>
       </div>
@@ -51,6 +51,9 @@ export default {
     }
   },
   created() {
+    fetch(this.apiURL + "/reviews")
+      .then(response => response.json())
+      .then(reviews => this.reviews = reviews);
 
   }
 };
