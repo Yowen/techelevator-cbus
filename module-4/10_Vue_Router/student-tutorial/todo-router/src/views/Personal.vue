@@ -1,7 +1,7 @@
 <template>
   <div class="personal">
     <h1>Personal</h1>
-    <todo-list :todos="[]" />
+    <todo-list :todos="personal" />
   </div>
 </template>
 
@@ -11,7 +11,7 @@
   export default {
     name: "personal",
     components: {
-        TodoList
+      TodoList
     },
     data() {
     return {

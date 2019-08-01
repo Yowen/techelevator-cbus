@@ -1,7 +1,7 @@
 <template>
   <div class="work">
     <h1>Work</h1>
-    <todo-list :todos="[]" />
+    <todo-list :todos="work" />
   </div>
 </template>
 
@@ -11,7 +11,7 @@
   export default {
     name: "work",
     components: {
-        TodoList
+      TodoList
     },
     data() {
     return {

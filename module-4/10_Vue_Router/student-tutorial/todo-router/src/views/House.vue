@@ -1,7 +1,7 @@
 <template>
   <div class="house">
     <h1>House</h1>
-    <todo-list :todos="[]" />
+    <todo-list :todos="house" />
   </div>
 </template>
 
@@ -11,7 +11,7 @@
   export default {
     name: "house",
     components: {
-        TodoList
+      TodoList
     },
     data() {
     return {
@@ -27,5 +27,6 @@
       ]
     }
   }
+    
   };
 </script>
