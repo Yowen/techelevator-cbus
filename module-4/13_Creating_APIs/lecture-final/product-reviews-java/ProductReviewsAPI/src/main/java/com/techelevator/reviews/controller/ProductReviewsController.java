@@ -2,10 +2,15 @@ package com.techelevator.reviews.controller;
 
 import java.util.List;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+import org.springframework.web.util.UriComponents;
 
 import com.techelevator.reviews.dao.IProductReviewDao;
 import com.techelevator.reviews.exception.ProductReviewNotFoundException;
@@ -35,6 +40,16 @@ public class ProductReviewsController {
 		}
 
 		throw new ProductReviewNotFoundException(id, "Product review could not be found.");
+	}
+
+	@PostMapping
+	public ResponseEntity<ProductReview> createProductReview(@RequestBody ProductReview productReview) {
+		productReviewDao.create(productReview);
+
+		UriComponents uriComponent = ServletUriComponentsBuilder.fromCurrentRequestUri()
+				.path("/" + Integer.toString(productReview.getId())).build();
+
+		return ResponseEntity.created(uriComponent.toUri()).body(productReview);
 	}
 
 }
