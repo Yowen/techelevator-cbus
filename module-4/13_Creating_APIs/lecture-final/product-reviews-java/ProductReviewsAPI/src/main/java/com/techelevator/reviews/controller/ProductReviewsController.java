@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -61,6 +62,17 @@ public class ProductReviewsController {
 
 		if (productReviewDao.read(productReview.getId()) != null) {
 			productReviewDao.update(productReview);
+			return;
+		}
+
+		throw new ProductReviewNotFoundException(id, "Product review could not be found.");
+	}
+
+	@DeleteMapping("/{id}")
+	@ResponseStatus(HttpStatus.NO_CONTENT)
+	public void deleteProductReview(@PathVariable int id) {
+		if (productReviewDao.read(id) != null) {
+			productReviewDao.delete(id);
 			return;
 		}
 
