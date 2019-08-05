@@ -34,11 +34,7 @@ export default {
                 const checkbox = event.target.querySelector('input[type="checkbox"]');
                 checkbox.checked = !checkbox.checked;
                 const checkMark = event.target.querySelector('.fa-check-circle').classList.toggle('completed');
-                marked();
             }
-        },
-        marked() {
-          
         }
     },
     created() {
